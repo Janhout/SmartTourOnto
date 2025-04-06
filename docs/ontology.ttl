@@ -1,0 +1,3932 @@
+@prefix : <http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#> .
+
+<http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto> rdf:type owl:Ontology ;
+                                                                    <http://purl.org/dc/terms/created> "2025-04-06"^^xsd:date ;
+                                                                    <http://purl.org/dc/terms/creator> "rgomez" ;
+                                                                    <http://purl.org/dc/terms/description> "La ontología tiene como objetivo principal ayudar a turistas y personas que viajen por negocios a encontrar los medios de transporte, hoteles, eventos, atracciones turísticas y restaurantes que hay disponibles en una ciudad específica."@es ,
+                                                                                                           "The main objective of the ontology is to help tourists and business travelers find the means of transportation, hotels, events, tourist attractions, and restaurants available in a specific city."@en ;
+                                                                    <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by/4.0/" ;
+                                                                    <http://purl.org/dc/terms/title> "SmartTourOnto" ;
+                                                                    owl:versionInfo 1.0 .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#sameAs
+rdfs:sameAs rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#eventIsOfType
+:eventIsOfType rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               owl:inverseOf :typeOfEvent ;
+               rdfs:domain :Event ;
+               rdfs:range :EventType ;
+               rdfs:comment "Especifica el tipo al que pertenece un evento"@es ,
+                            "Specifies the type to which an event belongs"@en ;
+               rdfs:label "event is of type"@en ,
+                          "evento de tipo"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#geoCoordinatesOf
+:geoCoordinatesOf rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf owl:topObjectProperty ;
+                  owl:inverseOf :hasGeoCoordinates ;
+                  rdfs:domain :GeoCoordinate ;
+                  rdfs:range :City ;
+                  rdfs:comment "Indica la ciudad a la que pertenece un conjunto de coordenadas geográficas"@es ,
+                               "Indicates the city to which a set of geographic coordinates belongs"@en ;
+                  rdfs:label "coordenadas geográficas de"@es ,
+                             "geographic coordinates of"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hasGeoCoordinates
+:hasGeoCoordinates rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf owl:topObjectProperty ;
+                   rdf:type owl:FunctionalProperty ;
+                   rdfs:domain :City ;
+                   rdfs:range :GeoCoordinate ;
+                   rdfs:comment "Indica el conjunto de coordenadas geográficas asociadas a una ciudad"@es ,
+                                "Indicates the set of geographic coordinates associated with a city"@en ;
+                   rdfs:label "has geographic coordinates"@en ,
+                              "tiene coordenadas geográficas"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hasLocation
+:hasLocation rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             owl:inverseOf :locationOf ;
+             rdfs:domain :Event ;
+             rdfs:range :City ;
+             rdfs:comment "Indica el evento que tiene lugar en una ciudad"@es ,
+                          "Indicates the event that takes place in a city"@en ;
+             rdfs:label "has location"@en ,
+                        "tiene lugar en"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hotelIsOfType
+:hotelIsOfType rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               owl:inverseOf :hotelTypeOf ;
+               rdfs:domain :Hotel ;
+               rdfs:range :HotelType ;
+               rdfs:comment "Especifica el tipo al que un hotel pertenece"@es ,
+                            "Specifies the type to which a hotel belongs"@en ;
+               rdfs:label "hotel es de tipo"@es ,
+                          "hotel is of type"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hotelTypeOf
+:hotelTypeOf rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdfs:domain :HotelType ;
+             rdfs:range :Hotel ;
+             rdfs:comment "Enumera los hoteles que son de un tipo de hotel determinado"@es ,
+                          "Lists the hotels that are of a certain hotel type"@en ;
+             rdfs:label "hotel type of"@en ,
+                        "tipo de hotel de"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#includes
+:includes rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          owl:inverseOf :isLocatedIn ;
+          rdfs:domain :City ;
+          rdfs:range :NonAdministrativePlace ;
+          rdfs:comment "Indica los lugares que están incluidos dentro de una ciudad"@es ,
+                       "Indicates the places that are included within a city"@en ;
+          rdfs:label "includes"@en ,
+                     "incluye"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#isLocatedIn
+:isLocatedIn rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdf:type owl:FunctionalProperty ;
+             rdfs:domain :NonAdministrativePlace ;
+             rdfs:range :City ;
+             rdfs:comment "Indica la ciudad en la que se encuentra un lugar"@es ,
+                          "Indicates the city in which a place is located"@en ;
+             rdfs:label "está situado en"@es ,
+                        "is located in"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#isOfferedIn
+:isOfferedIn rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             owl:inverseOf :offersService ;
+             rdf:type owl:FunctionalProperty ;
+             rdfs:domain :Service ;
+             rdfs:range :City ;
+             rdfs:comment "Relaciona un servicio (dominio) con la ciudad (rango) donde dicho servicio se ofrece o está disponible"@es ,
+                          "Relates a service (domain) to the city (range) where that service is offered or available"@en ;
+             rdfs:label "is offered in"@en ,
+                        "se ofrece en"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#locationOf
+:locationOf rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :City ;
+            rdfs:range :Event ;
+            rdfs:comment "Indica la ciudad en la que tiene lugar un evento"@es ,
+                         "Indicates the city where an event takes place"@en ;
+            rdfs:label "location of"@en ,
+                       "ubicación de"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#offersService
+:offersService rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain :City ;
+               rdfs:range :Service ;
+               rdfs:comment "List services offered in a city"@en ,
+                            "Relaciona los servicios que ofrece una ciudad"@es ;
+               rdfs:label "offers service"@en ,
+                          "ofrece servicio"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#operatedBy
+:operatedBy rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            owl:inverseOf :providesTransportService ;
+            rdfs:domain :TransportService ;
+            rdfs:range :TransportCompany ;
+            rdfs:comment "Indica la compañía que opera un servicio de transporte"@es ,
+                         "Indicates the company that operates a transport service"@en ;
+            rdfs:label "Operado por"@es ,
+                       "Operated by"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#providesTransportService
+:providesTransportService rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf owl:topObjectProperty ;
+                          rdfs:domain :TransportCompany ;
+                          rdfs:range :TransportService ;
+                          rdfs:comment "Indica el servicio de transporte que una compañía ofrece"@es ,
+                                       "Indicates the transport service that a company offers"@en ;
+                          rdfs:label "Proporciona servicio de transporte"@es ,
+                                     "Provides transport service"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#servesSpecialty
+:servesSpecialty rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 owl:inverseOf :specializedIn ;
+                 rdfs:domain :Restaurant ;
+                 rdfs:range :FoodType ;
+                 rdfs:comment "Indica el restaurante que sirve esta especialidad de comida"@es ,
+                              "Indicates the restaurant that serves this food specialty"@en ;
+                 rdfs:label "Serves Specialty"@en ,
+                            "Sirve especialidad"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#specializedIn
+:specializedIn rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain :FoodType ;
+               rdfs:range :Restaurant ;
+               rdfs:comment "Indica la especialidad culinaria por la que un restaurante es conocido"@es ,
+                            "Indicates the food specialty a restaurant is known for serving"@en ;
+               rdfs:label "especializado en"@es ,
+                          "specialized in"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#typeOfEvent
+:typeOfEvent rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdfs:domain :EventType ;
+             rdfs:range :Event ;
+             rdfs:comment "Lista los eventos que pertenecen a un tipo de evento determinado"@es ,
+                          "Lists the events that belong to a certain event type"@en ;
+             rdfs:label "tipo de evento"@es ,
+                        "type of event"@en .
+
+
+###  http://www.w3.org/2002/07/owl#topObjectProperty
+owl:topObjectProperty rdfs:subPropertyOf owl:topObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#enumerationDescription
+:enumerationDescription rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf owl:topDataProperty ;
+                        rdfs:domain :TypeEnumeration ;
+                        rdfs:range xsd:string ;
+                        rdfs:comment "A textual description of an enumeration type"@en ,
+                                     "Una descripción textual de un tipo de enumeración"@es ;
+                        rdfs:label "descripción de la enumeración"@es ,
+                                   "enumeration description"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#geolocationDescription
+:geolocationDescription rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf owl:topDataProperty ;
+                        rdfs:domain :Geolocation ;
+                        rdfs:range xsd:string ;
+                        rdfs:comment "A textual description of a geographic location"@en ,
+                                     "Una descripción textual de una ubicación geográfica"@es ;
+                        rdfs:label "descripción de geolocalización"@es ,
+                                   "geolocation description"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hasAreaInSquareMeters
+:hasAreaInSquareMeters rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf owl:topDataProperty ;
+                       rdf:type owl:FunctionalProperty ;
+                       rdfs:domain :Place ;
+                       rdfs:range xsd:float ;
+                       rdfs:comment "El área del lugar, medida en metros cuadrados"@es ,
+                                    "The area of the place, measured in square meters"@en ;
+                       rdfs:label "has area in square meters"@en ,
+                                  "tiene área en metros cuadrados"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hasAveragePrice
+:hasAveragePrice rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf owl:topDataProperty ;
+                 rdf:type owl:FunctionalProperty ;
+                 rdfs:domain :TransportService ;
+                 rdfs:range [ rdf:type rdfs:Datatype ;
+                              owl:onDatatype xsd:decimal ;
+                              owl:withRestrictions ( [ xsd:minInclusive 0
+                                                     ]
+                                                     [ xsd:fractionDigits 2
+                                                     ]
+                                                   )
+                            ] ;
+                 rdfs:comment "Indica el precio promedio de un servicio de transporte"@es ,
+                              "Indicates the average price of a transport service"@en ;
+                 rdfs:label "has average price"@en ,
+                            "tiene un precio medio"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hasAveragePricePerPerson
+:hasAveragePricePerPerson rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf owl:topDataProperty ;
+                          rdf:type owl:FunctionalProperty ;
+                          rdfs:domain :Restaurant ;
+                          rdfs:range [ rdf:type rdfs:Datatype ;
+                                       owl:onDatatype xsd:int ;
+                                       owl:withRestrictions ( [ xsd:minInclusive "0"^^xsd:int
+                                                              ]
+                                                            )
+                                     ] ;
+                          rdfs:comment "Indica el precio promedio por persona en un restaurante"@es ,
+                                       "Indicates the average price per person in a restaurant"@en ;
+                          rdfs:label "has average price per person"@en ,
+                                     "tiene un precio medio por persona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hasCompanyName
+:hasCompanyName rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain :Company ;
+                rdfs:range xsd:string ;
+                rdfs:comment "Especifica el nombre de una empresa"@es ,
+                             "Specifies the name of a company"@en ;
+                rdfs:label "has company name"@en ,
+                           "tiene nombre de empresa"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hasEventDate
+:hasEventDate rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain :Event ;
+              rdfs:range xsd:date ;
+              rdfs:comment "La fecha en que ocurre un evento"@es ,
+                           "The date on which an event occurs"@en ;
+              rdfs:label "event date"@en ,
+                         "fecha del evento"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hasPricePerNight
+:hasPricePerNight rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty ;
+                  rdf:type owl:FunctionalProperty ;
+                  rdfs:domain :Accommodation ;
+                  rdfs:range [ rdf:type rdfs:Datatype ;
+                               owl:onDatatype xsd:decimal ;
+                               owl:withRestrictions ( [ xsd:minInclusive 0
+                                                      ]
+                                                      [ xsd:fractionDigits 2
+                                                      ]
+                                                    )
+                             ] ;
+                  rdfs:comment "El precio por noche de un alojamiento"@es ,
+                               "The price per night of an accommodation"@en ;
+                  rdfs:label "Has price per night"@en ,
+                             "Tiene precio por noche"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hasRating
+:hasRating rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdf:type owl:FunctionalProperty ;
+           rdfs:domain :NonAdministrativePlace ;
+           rdfs:range [ rdf:type rdfs:Datatype ;
+                        owl:onDatatype xsd:decimal ;
+                        owl:withRestrictions ( [ xsd:minInclusive 0.0
+                                               ]
+                                               [ xsd:maxInclusive 5.0
+                                               ]
+                                               [ xsd:fractionDigits "1"^^xsd:int
+                                               ]
+                                             )
+                      ] ;
+           rdfs:comment "La calificación numérica de una entidad"@es ,
+                        "The numerical rating of an entity"@en ;
+           rdfs:label "Has rating"@en ,
+                      "Tiene calificación"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hasSchedule
+:hasSchedule rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :Service ;
+             rdfs:range xsd:string ;
+             rdfs:comment "El horario en que el servicio está disponible"@es ,
+                          "The schedule when the service is available"@en ;
+             rdfs:label "has schedule"@en ,
+                        "tiene horario"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hasStarRating
+:hasStarRating rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdf:type owl:FunctionalProperty ;
+               rdfs:domain :Accommodation ;
+               rdfs:range [ rdf:type rdfs:Datatype ;
+                            owl:onDatatype xsd:int ;
+                            owl:withRestrictions ( [ xsd:minInclusive "1"^^xsd:int
+                                                   ]
+                                                   [ xsd:maxInclusive "5"^^xsd:int
+                                                   ]
+                                                   [ xsd:totalDigits "1"^^xsd:int
+                                                   ]
+                                                 )
+                          ] ;
+               rdfs:comment "La calificación de estrellas de un alojamiento"@es ,
+                            "he star rating of an accommodation"@en ;
+               rdfs:label "Has star rating"@en ,
+                          "Tiene calificación de estrellas"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#isRecommendedAccommodation
+:isRecommendedAccommodation rdf:type owl:DatatypeProperty ;
+                            rdfs:subPropertyOf owl:topDataProperty ;
+                            rdf:type owl:FunctionalProperty ;
+                            rdfs:domain :Accommodation ;
+                            rdfs:range xsd:boolean ;
+                            rdfs:comment "Indica si un alojamiento es recomendado"@es ,
+                                         "Indicates whether an accommodation is recommended"@en ;
+                            rdfs:label "es un alojamiento recomendado"@es ,
+                                       "is recommended accommodation"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#isRecommendedRestaurant
+:isRecommendedRestaurant rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf owl:topDataProperty ;
+                         rdf:type owl:FunctionalProperty ;
+                         rdfs:domain :Restaurant ;
+                         rdfs:range xsd:boolean ;
+                         rdfs:comment "Indica si un restaurante es recomendado"@es ,
+                                      "Indicates whether a restaurant is recommended"@en ;
+                         rdfs:label "es un restaurante recomendado"@es ,
+                                    "is recommended restaurant"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#latitude
+:latitude rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdf:type owl:FunctionalProperty ;
+          rdfs:domain :GeoCoordinate ;
+          rdfs:range [ rdf:type rdfs:Datatype ;
+                       owl:onDatatype xsd:decimal ;
+                       owl:withRestrictions ( [ xsd:minInclusive -90.0
+                                              ]
+                                              [ xsd:maxInclusive 90.0
+                                              ]
+                                            )
+                     ] ;
+          rdfs:comment "La latitud de una ubicación geográfica"@es ,
+                       "The latitude of a geographic location"@en ;
+          rdfs:label "Latitud"@es ,
+                     "Latitude"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#longitude
+:longitude rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdf:type owl:FunctionalProperty ;
+           rdfs:domain :GeoCoordinate ;
+           rdfs:range [ rdf:type rdfs:Datatype ;
+                        owl:onDatatype xsd:decimal ;
+                        owl:withRestrictions ( [ xsd:minInclusive -180.0
+                                               ]
+                                               [ xsd:maxInclusive 180.0
+                                               ]
+                                             )
+                      ] ;
+           rdfs:comment "La longitud de una ubicación geográfica"@es ,
+                        "The longitude of a geographic location"@en ;
+           rdfs:label "Longitud"@es ,
+                      "Longitude"@en .
+
+
+###  http://www.w3.org/2002/07/owl#topDataProperty
+owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Accommodation
+:Accommodation rdf:type owl:Class ;
+               rdfs:subClassOf :Business ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasStarRating ;
+                                 owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:int
+                               ] ;
+               rdfs:comment "Representa un lugar donde se ofrece alojamiento temporal"@es ,
+                            "Represents a place where temporary lodging is offered"@en ;
+               rdfs:label "Accommodation"@en ,
+                          "Alojamiento"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#AdministrativePlace
+:AdministrativePlace rdf:type owl:Class ;
+                     rdfs:subClassOf :Place ;
+                     rdfs:comment "Representa un lugar geográfico con funciones administrativas o límites definidos"@es ,
+                                  "Represents a geographic place with administrative functions or defined boundaries"@en ;
+                     rdfs:label "Administrative place"@en ,
+                                "Lugar administrativo"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Bakery
+:Bakery rdf:type owl:Class ;
+        rdfs:subClassOf :FoodEstablishment ;
+        rdfs:comment "Representa un establecimiento donde se hornean y venden productos de panadería"@es ,
+                     "Represents an establishment where bakery products are baked and sold"@en ;
+        rdfs:label "Bakery"@en ,
+                   "Panadería"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Beach
+:Beach rdf:type owl:Class ;
+       rdfs:subClassOf :TouristAttraction ;
+       rdfs:comment "Represents a stretch of sandy or pebbled coastline"@en ,
+                    "Representa una extensión de costa arenosa o pedregosa" ;
+       rdfs:label "Beach"@en ,
+                  "Playa"@es ;
+       rdfs:sameAs "https://dbpedia.org/page/Beach" .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Bus
+:Bus rdf:type owl:Class ;
+     rdfs:subClassOf :PublicTransport ;
+     rdfs:comment "Representa un vehículo automotor de gran capacidad destinado al transporte público colectivo de pasajeros por carretera, siguiendo rutas generalmente fijas"@es ,
+                  "Represents a large capacity motor vehicle intended for collective public passenger transport by road, usually following fixed routes"@en ;
+     rdfs:label "Autobús"@es ,
+                "Bus"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Business
+:Business rdf:type owl:Class ;
+          rdfs:subClassOf :NonAdministrativePlace ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasRating ;
+                            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:decimal
+                          ] ;
+          rdfs:comment "Representa una entidad comercial o establecimiento que ofrece bienes o servicios"@es ,
+                       "Represents a business entity or establishment that offers goods or services"@en ;
+          rdfs:label "Business"@en ,
+                     "Negocios"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#City
+:City rdf:type owl:Class ;
+      rdfs:subClassOf :AdministrativePlace ;
+      rdfs:comment "Representa un área urbana grande y poblada"@es ,
+                   "Represents a large and populated urban area"@en ;
+      rdfs:label "City"@en ,
+                 "Ciudad"@es ;
+      rdfs:sameAs "http://www.wikidata.org/entity/Q515" .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Clinic
+:Clinic rdf:type owl:Class ;
+        rdfs:subClassOf :MedicalFacility ;
+        rdfs:comment "Representa un establecimiento médico que ofrece atención ambulatoria"@es ,
+                     "Represents a medical establishment that offers outpatient care"@en ;
+        rdfs:label "Clinic"@en ,
+                   "Clínica"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CoffeeShop
+:CoffeeShop rdf:type owl:Class ;
+            rdfs:subClassOf :FoodEstablishment ;
+            rdfs:comment "Representa un establecimiento donde se sirven café y otras bebidas, a menudo con aperitivos ligeros"@es ,
+                         "Represents an establishment where coffee and other beverages are served, often with light snacks"@en ;
+            rdfs:label "Cafetería"@es ,
+                       "Coffee Shop"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Company
+:Company rdf:type owl:Class ;
+         rdfs:subClassOf owl:Thing ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasCompanyName ;
+                           owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onDataRange xsd:string
+                         ] ;
+         owl:disjointWith :Event ,
+                          :Geolocation ,
+                          :TypeEnumeration ;
+         rdfs:comment "Company that operates or manages some service, business or tourist atraction"@en ,
+                      "Empresa que opera o gestiona algún negocio, atracción turística o servicio"@es ;
+         rdfs:label "Company"@en ,
+                    "Empresa"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Cultural
+:Cultural rdf:type owl:Class ;
+          rdfs:subClassOf :TouristAttraction ;
+          rdfs:comment "Representa un lugar de interés relacionado con la cultura"@es ,
+                       "Represents a place of interest related to culture" ;
+          rdfs:label "Cultural"@en ,
+                     "Cultural"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Event
+:Event rdf:type owl:Class ;
+       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                         owl:onProperty :eventIsOfType ;
+                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass :EventType
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasLocation ;
+                         owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                         owl:onClass :City
+                       ] ;
+       owl:disjointWith :Geolocation ,
+                        :Place ,
+                        :Service ,
+                        :TypeEnumeration ;
+       rdfs:comment "Representa ocurrencias como conciertos, reuniones, festivales, conferencias o cualquier otra actividad que tenga un lugar y un tiempo definidos."@es ,
+                    "Represents occurrences such as concerts, meetings, festivals, conferences, or any other activity that has a defined place and time."@en ;
+       rdfs:label "Event"@en ,
+                  "Evento"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#EventType
+:EventType rdf:type owl:Class ;
+           rdfs:subClassOf :TypeEnumeration ;
+           rdfs:comment "Representa un tipo de evento"@es ,
+                        "Represents a type of event"@en ;
+           rdfs:label "Event Type"@en ,
+                      "Tipo de evento"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#FoodEstablishment
+:FoodEstablishment rdf:type owl:Class ;
+                   rdfs:subClassOf :Business ;
+                   rdfs:comment "Representa un establecimiento que ofrece comida y bebida"@es ,
+                                "Represents an establishment that offers food and beverages"@en ;
+                   rdfs:label "Establecimientos de comida"@es ,
+                              "Food Establishment"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#FoodType
+:FoodType rdf:type owl:Class ;
+          rdfs:subClassOf :TypeEnumeration ;
+          rdfs:comment "Representa un tipo de comida"@es ,
+                       "Represents a type of food"@en ;
+          rdfs:label "Restaurant Type"@en ,
+                     "Tipo de restaurante"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#GeoCoordinate
+:GeoCoordinate rdf:type owl:Class ;
+               rdfs:subClassOf :Geolocation ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :latitude ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:decimal
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :longitude ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:decimal
+                               ] ;
+               rdfs:comment "Representa un conjunto de coordenadas geográficas, como latitud y longitud, que definen un punto específico en la Tierra"@es ,
+                            "Represents a set of geographic coordinates, such as latitude and longitude, that define a specific point on Earth"@en ;
+               rdfs:label "Coordenadas Geográficas"@es ,
+                          "Geographic Coordinates"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Geolocation
+:Geolocation rdf:type owl:Class ;
+             rdfs:subClassOf owl:Thing ;
+             owl:disjointWith :Place ,
+                              :Service ,
+                              :TypeEnumeration ;
+             rdfs:comment "Representa la ubicación geográfica de un lugar o entidad. Esta clase agrupa información sobre la posición espacial, que puede incluir coordenadas geográficas, direcciones o cualquier otro tipo de identificador de ubicación"@es ,
+                          "Represents the geographic location of a place or entity. This class groups information about spatial position, which may include geographic coordinates, addresses, or any other type of location identifier"@en ;
+             rdfs:label "Geolocalización"@es ,
+                        "Geolocation"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Hospital
+:Hospital rdf:type owl:Class ;
+          rdfs:subClassOf :MedicalFacility ;
+          rdfs:comment "Representa un establecimiento médico grande que ofrece atención hospitalaria"@es ,
+                       "Represents a large medical establishment that offers inpatient care"@en ;
+          rdfs:label "Hospital"@en ,
+                     "Hospital"@es ;
+          rdfs:sameAs "https://dbpedia.org/page/Hospital" .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Hostel
+:Hostel rdf:type owl:Class ;
+        rdfs:subClassOf :Accommodation ;
+        rdfs:comment "Representa un tipo de alojamiento económico, generalmente con habitaciones compartidas"@es ,
+                     "Represents a type of budget accommodation, typically with shared rooms"@en ;
+        rdfs:label "Hostal"@es ,
+                   "Hostel"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Hotel
+:Hotel rdf:type owl:Class ;
+       rdfs:subClassOf :Accommodation ;
+       rdfs:comment "Representa un establecimiento que ofrece alojamiento, generalmente con servicios adicionales"@es ,
+                    "Represents an establishment that offers lodging, typically with additional services"@en ;
+       rdfs:label "Hotel"@en ,
+                  "Hotel"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelType
+:HotelType rdf:type owl:Class ;
+           rdfs:subClassOf :TypeEnumeration ;
+           rdfs:comment "Representa un tipo de hotel"@es ,
+                        "Represents a type of hotel" ;
+           rdfs:label "Hotel Type"@en ,
+                      "Tipo de hotel"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MedicalFacility
+:MedicalFacility rdf:type owl:Class ;
+                 rdfs:subClassOf :NonAdministrativePlace ;
+                 rdfs:comment "Representa un establecimiento que ofrece servicios médicos"@es ,
+                              "Represents an establishment that offers medical services"@en ;
+                 rdfs:label "Centro médico"@es ,
+                            "Medical Facility"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Metro
+:Metro rdf:type owl:Class ;
+       rdfs:subClassOf :PublicTransport ;
+       rdfs:comment "Representa un sistema de transporte ferroviario eléctrico masivo, típicamente subterráneo o elevado, que opera en un área urbana"@es ,
+                    "Represents a mass electric railway transit system, typically underground or elevated, operating within an urban area"@en ;
+       rdfs:label "Metro"@en ,
+                  "Metro"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Monument
+:Monument rdf:type owl:Class ;
+          rdfs:subClassOf :TouristAttraction ;
+          rdfs:comment "Representa una estructura o estatua conmemorativa"@es ,
+                       "Represents a commemorative structure or statue"@en ;
+          rdfs:label "Monument"@en ,
+                     "Monumento"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Museum
+:Museum rdf:type owl:Class ;
+        rdfs:subClassOf :TouristAttraction ;
+        rdfs:comment "Representa un establecimiento que exhibe objetos de interés histórico, artístico o científico"@es ,
+                     "Represents an establishment that exhibits objects of historical, artistic, or scientific interest"@en ;
+        rdfs:label "Museo"@es ,
+                   "Museum"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#NonAdministrativePlace
+:NonAdministrativePlace rdf:type owl:Class ;
+                        rdfs:subClassOf :Place ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty :isLocatedIn ;
+                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass :City
+                                        ] ;
+                        rdfs:comment "Representa un lugar geográfico que no tiene funciones administrativas directas"@es ,
+                                     "Represents a geographic place that does not have direct administrative"@en ;
+                        rdfs:label "Lugar no administrativo"@es ,
+                                   "Non-administrative place"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Park
+:Park rdf:type owl:Class ;
+      rdfs:subClassOf :TouristAttraction ;
+      rdfs:comment "Representa un área verde pública para recreación"@es ,
+                   "Represents a public green area for recreation"@en ;
+      rdfs:label "Park"@en ,
+                 "Parque"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Place
+:Place rdf:type owl:Class ;
+       rdfs:subClassOf owl:Thing ;
+       owl:disjointWith :TypeEnumeration ;
+       rdfs:comment "Representa una ubicación física o un lugar"@es ,
+                    "Represents a physical location or a place"@en ;
+       rdfs:label "Lugar"@es ,
+                  "Place"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#PrivateTransport
+:PrivateTransport rdf:type owl:Class ;
+                  rdfs:subClassOf :TransportService ;
+                  rdfs:comment "Representa un servicio de transporte operado por particulares o empresas privadas"@es ,
+                               "Represents a transport service operated by private individuals or private companies" ;
+                  rdfs:label "Private Transport"@en ,
+                             "Transporte privado"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#PublicBicycle
+:PublicBicycle rdf:type owl:Class ;
+               rdfs:subClassOf :PublicTransport ;
+               rdfs:comment "Representa una bicicleta que forma parte de un sistema de uso compartido o alquiler público, disponible para desplazamientos urbanos"@es ,
+                            "Represents a bicycle that is part of a public sharing or rental system, available for urban travel"@en ;
+               rdfs:label "Bicicleta Pública"@es ,
+                          "Public Bicycle"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#PublicTransport
+:PublicTransport rdf:type owl:Class ;
+                 rdfs:subClassOf :TransportService ;
+                 rdfs:comment "Representa un servicio de transporte operado por entidades públicas"@es ,
+                              "Represents a transport service operated by public entities"@en ;
+                 rdfs:label "Public Transport"@en ,
+                            "Transporte público"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Restaurant
+:Restaurant rdf:type owl:Class ;
+            rdfs:subClassOf :FoodEstablishment ;
+            rdfs:comment "Representa un establecimiento donde se sirven comidas preparadas"@es ,
+                         "Represents an establishment where prepared meals are served"@en ;
+            rdfs:label "Restaurant"@en ,
+                       "Restaurante"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Service
+:Service rdf:type owl:Class ;
+         rdfs:subClassOf owl:Thing ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :isOfferedIn ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :City
+                         ] ;
+         owl:disjointWith :TypeEnumeration ;
+         rdfs:comment "Representa una actividad o tarea realizada para otros"@es ,
+                      "Represents an activity or task performed for others"@en ;
+         rdfs:label "Service"@en ,
+                    "Servicio"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Shop
+:Shop rdf:type owl:Class ;
+      rdfs:subClassOf :Business ;
+      rdfs:comment "Representa un establecimiento comercial donde se venden bienes"@es ,
+                   "Represents a commercial establishment where goods are sold"@en ;
+      rdfs:label "Shop"@en ,
+                 "Tienda"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Taxi
+:Taxi rdf:type owl:Class ;
+      rdfs:subClassOf :PublicTransport ;
+      rdfs:comment "Representa un vehículo automóvil de alquiler con conductor, autorizado para el transporte de pasajeros bajo demanda de un punto a otro"@es ,
+                   "Represents a rental motor vehicle with a driver, authorized for on-demand passenger transport from one point to another"@en ;
+      rdfs:label "Taxi"@en ,
+                 "Taxi"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#TouristAttraction
+:TouristAttraction rdf:type owl:Class ;
+                   rdfs:subClassOf :NonAdministrativePlace ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasRating ;
+                                     owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onDataRange xsd:decimal
+                                   ] ;
+                   rdfs:comment "Representa un lugar de interés para los turistas"@es ,
+                                "Represents a place of interest for tourists"@en ;
+                   rdfs:label "Atracción turística"@es ,
+                              "Tourist Atraction"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Tram
+:Tram rdf:type owl:Class ;
+      rdfs:subClassOf :PublicTransport ;
+      rdfs:comment "Representa un vehículo de transporte público que circula sobre raíles integrados en la superficie de las calles urbanas"@es ,
+                   "Represents a public transport vehicle that runs on rails embedded in the surface of urban streets"@en ;
+      rdfs:label "Tram"@en ,
+                 "Tranvía"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#TransportCompany
+:TransportCompany rdf:type owl:Class ;
+                  rdfs:subClassOf :Company ;
+                  rdfs:comment "Company that operates or manages some transport service"@en ,
+                               "Empresa que opera o gestiona algún servicio de transporte"@es ;
+                  rdfs:label "Empresa de transporte"@es ,
+                             "Transport Company"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#TransportService
+:TransportService rdf:type owl:Class ;
+                  rdfs:subClassOf :Service ;
+                  rdfs:comment "Representa un servicio que facilita el movimiento de personas o bienes"@es ,
+                               "Represents a service that facilitates the movement of people or goods"@en ;
+                  rdfs:label "Servicio de transporte"@es ,
+                             "Transport Service"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#TypeEnumeration
+:TypeEnumeration rdf:type owl:Class ;
+                 rdfs:subClassOf owl:Thing ;
+                 rdfs:comment "Representa un conjunto de tipos predefinidos"@es ,
+                              "Represents a set of predefined types"@en ;
+                 rdfs:label "Enumeration Type"@en ,
+                            "Tipo de enumeración"@es .
+
+
+###  http://www.w3.org/2002/07/owl#Thing
+owl:Thing rdfs:comment "La clase más general en la jerarquía de la ontología, representando cualquier entidad o concepto"@es ,
+                       "The most general class in the ontology hierarchy, representing any entity or concept"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#AndalusianFood
+:AndalusianFood rdf:type owl:NamedIndividual ,
+                         :FoodType .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Barcelona
+:Barcelona rdf:type owl:NamedIndividual ,
+                    :City ;
+           :hasGeoCoordinates :BarcelonaCoordinate ;
+           rdfs:sameAs "https://dbpedia.org/page/Barcelona" .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#BarcelonaCarnival
+:BarcelonaCarnival rdf:type owl:NamedIndividual ,
+                            :Event ;
+                   :eventIsOfType :GastronomicEvent ;
+                   :hasLocation :Barcelona ;
+                   :hasEventDate "2024-03-16"^^xsd:date ;
+                   rdfs:comment "Evento Gastronómico en Barcelona"@es ,
+                                "Gastronomic event in Barcelona"@en ;
+                   rdfs:label "Barcelona Carnival"@en ,
+                              "Carnaval Barcelona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#BarcelonaCongress
+:BarcelonaCongress rdf:type owl:NamedIndividual ,
+                            :Event ;
+                   :eventIsOfType :SportsEvent ;
+                   :hasLocation :Barcelona ;
+                   :hasEventDate "2024-07-14"^^xsd:date ;
+                   rdfs:comment "Evento Deportivo en Barcelona"@es ,
+                                "Sports event in Barcelona"@en ;
+                   rdfs:label "Barcelona Congress"@en ,
+                              "Congreso Barcelona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#BarcelonaCoordinate
+:BarcelonaCoordinate rdf:type owl:NamedIndividual ,
+                              :GeoCoordinate .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#BarcelonaFair
+:BarcelonaFair rdf:type owl:NamedIndividual ,
+                        :Event ;
+               :eventIsOfType :SportsEvent ;
+               :hasLocation :Barcelona ;
+               :hasEventDate "2024-01-04"^^xsd:date ;
+               rdfs:comment "Evento Deportivo en Barcelona"@es ,
+                            "Sports event in Barcelona"@en ;
+               rdfs:label "Barcelona Fair"@en ,
+                          "Feria Barcelona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#BarcelonaFestival
+:BarcelonaFestival rdf:type owl:NamedIndividual ,
+                            :Event ;
+                   :eventIsOfType :CulturalEvent ;
+                   :hasLocation :Barcelona ;
+                   :hasEventDate "2024-07-17"^^xsd:date ;
+                   rdfs:comment "Cultural event in Barcelona"@en ,
+                                "Evento Cultural en Barcelona"@es ;
+                   rdfs:label "Barcelona Festival"@en ,
+                              "Festival Barcelona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#BeachHotel
+:BeachHotel rdf:type owl:NamedIndividual ,
+                     :HotelType .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Bilbao
+:Bilbao rdf:type owl:NamedIndividual ,
+                 :City ;
+        :hasGeoCoordinates :BilbaoCoordinate ;
+        rdfs:sameAs "https://dbpedia.org/page/Bilbao" .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#BilbaoCarnival
+:BilbaoCarnival rdf:type owl:NamedIndividual ,
+                         :Event ;
+                :eventIsOfType :MusicEvent ;
+                :hasLocation :Bilbao ;
+                :hasEventDate "2024-10-13"^^xsd:date ;
+                rdfs:comment "Evento Música en Bilbao"@es ,
+                             "Music event in Bilbao"@en ;
+                rdfs:label "Bilbao Carnival"@en ,
+                           "Carnaval Bilbao"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#BilbaoCongress
+:BilbaoCongress rdf:type owl:NamedIndividual ,
+                         :Event ;
+                :eventIsOfType :CulturalEvent ;
+                :hasLocation :Bilbao ;
+                :hasEventDate "2024-08-27"^^xsd:date ;
+                rdfs:comment "Cultural event in Bilbao"@en ,
+                             "Evento Cultural en Bilbao"@es ;
+                rdfs:label "Bilbao Congress"@en ,
+                           "Congreso Bilbao"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#BilbaoCoordinate
+:BilbaoCoordinate rdf:type owl:NamedIndividual ,
+                           :GeoCoordinate .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#BilbaoFestival
+:BilbaoFestival rdf:type owl:NamedIndividual ,
+                         :Event ;
+                :eventIsOfType :SportsEvent ;
+                :hasLocation :Bilbao ;
+                :hasEventDate "2024-02-01"^^xsd:date ;
+                rdfs:comment "Evento Deportivo en Bilbao"@es ,
+                             "Sports event in Bilbao"@en ;
+                rdfs:label "Bilbao Festival"@en ,
+                           "Festival Bilbao"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#BusCityZaragoza
+:BusCityZaragoza rdf:type owl:NamedIndividual ,
+                          :Bus ;
+                 :isOfferedIn :Zaragoza ;
+                 :operatedBy :CityZaragoza ;
+                 :hasAveragePrice 2.0 .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#BusinessHotel
+:BusinessHotel rdf:type owl:NamedIndividual ,
+                        :HotelType .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Cadiz
+:Cadiz rdf:type owl:NamedIndividual ,
+                :City ;
+       :hasGeoCoordinates :CadizCoordinate ;
+       rdfs:sameAs "https://dbpedia.org/page/Cádiz" .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CadizCarnival
+:CadizCarnival rdf:type owl:NamedIndividual ,
+                        :Event ;
+               :eventIsOfType :SportsEvent ;
+               :hasLocation :Cadiz ;
+               :hasEventDate "2024-10-07"^^xsd:date ;
+               rdfs:comment "Evento Deportivo en Cádiz"@es ,
+                            "Sports event in Cadiz"@en ;
+               rdfs:label "Cadiz Carnival"@en ,
+                          "Carnaval Cádiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CadizConcert
+:CadizConcert rdf:type owl:NamedIndividual ,
+                       :Event ;
+              :eventIsOfType :TechEvent ;
+              :hasLocation :Cadiz ;
+              :hasEventDate "2024-05-15"^^xsd:date ;
+              rdfs:comment "Evento Tecnológico en Cádiz"@es ,
+                           "Tech event in Cadiz"@en ;
+              rdfs:label "Cadiz Concert"@en ,
+                         "Concierto Cádiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CadizCongress
+:CadizCongress rdf:type owl:NamedIndividual ,
+                        :Event ;
+               :eventIsOfType :MusicEvent ;
+               :hasLocation :Cadiz ;
+               :hasEventDate "2024-06-07"^^xsd:date ;
+               rdfs:comment "Evento Música en Cádiz"@es ,
+                            "Music event in Cadiz"@en ;
+               rdfs:label "Cadiz Congress"@en ,
+                          "Congreso Cádiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CadizCoordinate
+:CadizCoordinate rdf:type owl:NamedIndividual ,
+                          :GeoCoordinate .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CadizFair
+:CadizFair rdf:type owl:NamedIndividual ,
+                    :Event ;
+           :eventIsOfType :MusicEvent ;
+           :hasLocation :Cadiz ;
+           :hasEventDate "2024-07-01"^^xsd:date ;
+           rdfs:comment "Evento Música en Cádiz"@es ,
+                        "Music event in Cadiz"@en ;
+           rdfs:label "Cadiz Fair"@en ,
+                      "Feria Cádiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CadizFestival
+:CadizFestival rdf:type owl:NamedIndividual ,
+                        :Event ;
+               :eventIsOfType :CulturalEvent ;
+               :hasLocation :Cadiz ;
+               :hasEventDate "2024-01-02"^^xsd:date ;
+               rdfs:comment "Cultural event in Cadiz"@en ,
+                            "Evento Cultural en Cádiz"@es ;
+               rdfs:label "Cadiz Festival"@en ,
+                          "Festival Cádiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CastilloBarcelona
+:CastilloBarcelona rdf:type owl:NamedIndividual ,
+                            :Cultural ;
+                   :isLocatedIn :Barcelona ;
+                   :hasRating 4.5 ;
+                   rdfs:comment "Cultural located in Barcelona"@en ,
+                                "Cultural situado en Barcelona"@es ;
+                   rdfs:label "Barcelona Castle"@en ,
+                              "Castillo Barcelona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CastilloBilbao
+:CastilloBilbao rdf:type owl:NamedIndividual ,
+                         :Beach ;
+                :isLocatedIn :Bilbao ;
+                :hasRating 4.4 ;
+                rdfs:comment "Beach located in Bilbao"@en ,
+                             "Playa situado en Bilbao"@es ;
+                rdfs:label "Bilbao Castle"@en ,
+                           "Castillo Bilbao"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CastilloCadiz
+:CastilloCadiz rdf:type owl:NamedIndividual ,
+                        :Monument ;
+               :isLocatedIn :Cadiz ;
+               :hasRating 4 ;
+               rdfs:comment "Monument located in Cadiz"@en ,
+                            "Monumento situado en Cadiz"@es ;
+               rdfs:label "Cadiz Castle"@en ,
+                          "Castillo Cadiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CastilloMadrid
+:CastilloMadrid rdf:type owl:NamedIndividual ,
+                         :Monument ;
+                :isLocatedIn :Madrid ;
+                :hasRating 4 ;
+                rdfs:comment "Monument located in Madrid"@en ,
+                             "Monumento situado en Madrid"@es ;
+                rdfs:label "Castillo Madrid"@es ,
+                           "Madrid Castle"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CastilloMalaga
+:CastilloMalaga rdf:type owl:NamedIndividual ,
+                         :Cultural ;
+                :isLocatedIn :Malaga ;
+                :hasRating 4.4 ;
+                rdfs:comment "Cultural located in Malaga"@en ,
+                             "Cultural situado en Malaga"@es ;
+                rdfs:label "Castillo Malaga"@es ,
+                           "Malaga Castle"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CastilloPamplona
+:CastilloPamplona rdf:type owl:NamedIndividual ,
+                           :Museum ;
+                  :isLocatedIn :Pamplona ;
+                  :hasRating 4.8 ;
+                  rdfs:comment "Museo situado en Pamplona"@es ,
+                               "Museum located in Pamplona"@en ;
+                  rdfs:label "Castillo Pamplona"@es ,
+                             "Pamplona Castle"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CastilloSanSebastian
+:CastilloSanSebastian rdf:type owl:NamedIndividual ,
+                               :Cultural ;
+                      :isLocatedIn :SanSebastian ;
+                      :hasRating 3.8 ;
+                      rdfs:comment "Cultural located in SanSebastian"@en ,
+                                   "Cultural situado en SanSebastian"@es ;
+                      rdfs:label "Castillo SanSebastian"@es ,
+                                 "SanSebastian Castle"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CastilloSevilla
+:CastilloSevilla rdf:type owl:NamedIndividual ,
+                          :Monument ;
+                 :isLocatedIn :Sevilla ;
+                 :hasRating 4.6 ;
+                 rdfs:comment "Monument located in Sevilla"@en ,
+                              "Monumento situado en Sevilla"@es ;
+                 rdfs:label "Castillo Sevilla"@es ,
+                            "Sevilla Castle"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CastilloToledo
+:CastilloToledo rdf:type owl:NamedIndividual ,
+                         :Monument ;
+                :isLocatedIn :Toledo ;
+                :hasRating 3.7 ;
+                rdfs:comment "Monument located in Toledo"@en ,
+                             "Monumento situado en Toledo"@es ;
+                rdfs:label "Castillo Toledo"@es ,
+                           "Toledo Castle"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CastilloValencia
+:CastilloValencia rdf:type owl:NamedIndividual ,
+                           :Beach ;
+                  :isLocatedIn :Valencia ;
+                  :hasRating 4.7 ;
+                  rdfs:comment "Beach located in Valencia"@en ,
+                               "Playa situado en Valencia"@es ;
+                  rdfs:label "Castillo Valencia"@es ,
+                             "Valencia Castle"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CastilloZaragoza
+:CastilloZaragoza rdf:type owl:NamedIndividual ,
+                           :Park ;
+                  :isLocatedIn :Zaragoza ;
+                  :hasRating 3.5 ;
+                  rdfs:comment "Park located in Zaragoza"@en ,
+                               "Parque situado en Zaragoza"@es ;
+                  rdfs:label "Castillo Zaragoza"@es ,
+                             "Zaragoza Castle"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CatedralBarcelona
+:CatedralBarcelona rdf:type owl:NamedIndividual ,
+                            :Museum ;
+                   :isLocatedIn :Barcelona ;
+                   :hasRating 4.3 ;
+                   rdfs:comment "Museo situado en Barcelona"@es ,
+                                "Museum located in Barcelona"@en ;
+                   rdfs:label "Barcelona Cathedral"@en ,
+                              "Catedral Barcelona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CatedralBilbao
+:CatedralBilbao rdf:type owl:NamedIndividual ,
+                         :Park ;
+                :isLocatedIn :Bilbao ;
+                :hasRating 3.7 ;
+                rdfs:comment "Park located in Bilbao"@en ,
+                             "Parque situado en Bilbao"@es ;
+                rdfs:label "Bilbao Cathedral"@en ,
+                           "Catedral Bilbao"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CatedralCadiz
+:CatedralCadiz rdf:type owl:NamedIndividual ,
+                        :Park ;
+               :isLocatedIn :Cadiz ;
+               :hasRating 4.4 ;
+               rdfs:comment "Park located in Cadiz"@en ,
+                            "Parque situado en Cadiz"@es ;
+               rdfs:label "Cadiz Cathedral"@en ,
+                          "Catedral Cadiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CatedralMadrid
+:CatedralMadrid rdf:type owl:NamedIndividual ,
+                         :Beach ;
+                :isLocatedIn :Madrid ;
+                :hasRating 4.6 ;
+                rdfs:comment "Beach located in Madrid"@en ,
+                             "Playa situado en Madrid"@es ;
+                rdfs:label "Catedral Madrid"@es ,
+                           "Madrid Cathedral"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CatedralMalaga
+:CatedralMalaga rdf:type owl:NamedIndividual ,
+                         :Museum ;
+                :isLocatedIn :Malaga ;
+                :hasRating 4.1 ;
+                rdfs:comment "Museo situado en Malaga"@es ,
+                             "Museum located in Malaga"@en ;
+                rdfs:label "Catedral Malaga"@es ,
+                           "Malaga Cathedral"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CatedralPamplona
+:CatedralPamplona rdf:type owl:NamedIndividual ,
+                           :Beach ;
+                  :isLocatedIn :Pamplona ;
+                  :hasRating 4 ;
+                  rdfs:comment "Beach located in Pamplona"@en ,
+                               "Playa situado en Pamplona"@es ;
+                  rdfs:label "Catedral Pamplona"@es ,
+                             "Pamplona Cathedral"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CatedralSevilla
+:CatedralSevilla rdf:type owl:NamedIndividual ,
+                          :Beach ;
+                 :isLocatedIn :Sevilla ;
+                 :hasRating 4.1 ;
+                 rdfs:comment "Beach located in Sevilla"@en ,
+                              "Playa situado en Sevilla"@es ;
+                 rdfs:label "Catedral Sevilla"@es ,
+                            "Sevilla Cathedral"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CatedralToledo
+:CatedralToledo rdf:type owl:NamedIndividual ,
+                         :Cultural ;
+                :isLocatedIn :Toledo ;
+                :hasRating 3.7 ;
+                rdfs:comment "Cultural located in Toledo"@en ,
+                             "Cultural situado en Toledo"@es ;
+                rdfs:label "Catedral Toledo"@es ,
+                           "Toledo Cathedral"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CatedralValencia
+:CatedralValencia rdf:type owl:NamedIndividual ,
+                           :Monument ;
+                  :isLocatedIn :Valencia ;
+                  :hasRating 4.6 ;
+                  rdfs:comment "Monument located in Valencia"@en ,
+                               "Monumento situado en Valencia"@es ;
+                  rdfs:label "Catedral Valencia"@es ,
+                             "Valencia Cathedral"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CatedralZaragoza
+:CatedralZaragoza rdf:type owl:NamedIndividual ,
+                           :Beach ;
+                  :isLocatedIn :Zaragoza ;
+                  :hasRating 3.6 ;
+                  rdfs:comment "Beach located in Zaragoza"@en ,
+                               "Playa situado en Zaragoza"@es ;
+                  rdfs:label "Catedral Zaragoza"@es ,
+                             "Zaragoza Cathedral"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CityBarcelona
+:CityBarcelona rdf:type owl:NamedIndividual ,
+                        :TransportCompany ;
+               :hasCompanyName "City Barcelona" ;
+               rdfs:comment "Empresa de trasnportes en Barcelona"@es ,
+                            "Transport Company in Barcelona"@en ;
+               rdfs:label "City Barcelona"@en ,
+                          "City Barcelona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CityBilbao
+:CityBilbao rdf:type owl:NamedIndividual ,
+                     :TransportCompany ;
+            :hasCompanyName "City Bilbao" ;
+            rdfs:comment "Empresa de trasnportes en Bilbao"@es ,
+                         "Transport Company in Bilbao"@en ;
+            rdfs:label "City Bilbao"@en ,
+                       "City Bilbao"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CityCadiz
+:CityCadiz rdf:type owl:NamedIndividual ,
+                    :TransportCompany ;
+           :hasCompanyName "City Cadiz" ;
+           rdfs:comment "Empresa de trasnportes en Cádiz"@es ,
+                        "Transport Company in Cadiz"@en ;
+           rdfs:label "City Cadiz"@en ,
+                      "City Cádiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CityMadrid
+:CityMadrid rdf:type owl:NamedIndividual ,
+                     :TransportCompany ;
+            :hasCompanyName "City Madrid" ;
+            rdfs:comment "Empresa de trasnportes en Madrid"@es ,
+                         "Transport Company in Madrid"@en ;
+            rdfs:label "City Madrid"@en ,
+                       "City Madrid"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CityMalaga
+:CityMalaga rdf:type owl:NamedIndividual ,
+                     :TransportCompany ;
+            :hasCompanyName "City Malaga" ;
+            rdfs:comment "Empresa de trasnportes en Málaga"@es ,
+                         "Transport Company in Malaga"@en ;
+            rdfs:label "City Malaga"@en ,
+                       "City Málaga"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CityPamplona
+:CityPamplona rdf:type owl:NamedIndividual ,
+                       :TransportCompany ;
+              :hasCompanyName "City Pamplona" ;
+              rdfs:comment "Empresa de trasnportes en Pamplona"@es ,
+                           "Transport Company in Pamplona"@en ;
+              rdfs:label "City Pamplona"@en ,
+                         "City Pamplona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CitySevilla
+:CitySevilla rdf:type owl:NamedIndividual ,
+                      :TransportCompany ;
+             :hasCompanyName "City Sevilla" ;
+             rdfs:comment "Empresa de trasnportes en Sevilla"@es ,
+                          "Transport Company in Sevilla"@en ;
+             rdfs:label "City Sevilla"@en ,
+                        "City Sevilla"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CityToledo
+:CityToledo rdf:type owl:NamedIndividual ,
+                     :TransportCompany ;
+            :hasCompanyName "City Toledo" ;
+            rdfs:comment "Empresa de trasnportes en Toledo"@es ,
+                         "Transport Company in Toledo"@en ;
+            rdfs:label "City Toledo"@en ,
+                       "City Toledo"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CityZaragoza
+:CityZaragoza rdf:type owl:NamedIndividual ,
+                       :TransportCompany ;
+              :hasCompanyName "City Zaragoza" ;
+              rdfs:comment "Empresa de trasnportes en Zaragoza"@es ,
+                           "Transport Company in Zaragoza"@en ;
+              rdfs:label "City Zaragoza"@en ,
+                         "City Zaragoza"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CulturalEvent
+:CulturalEvent rdf:type owl:NamedIndividual ,
+                        :EventType .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#GastronomicEvent
+:GastronomicEvent rdf:type owl:NamedIndividual ,
+                           :EventType .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelDelMarBarcelona
+:HotelDelMarBarcelona rdf:type owl:NamedIndividual ,
+                               :Hotel ;
+                      :hotelIsOfType :BeachHotel ;
+                      :isLocatedIn :Barcelona ;
+                      :hasPricePerNight 298 ;
+                      :hasRating 4.6 ;
+                      :hasStarRating 4 ;
+                      rdfs:comment "Beach Hotel located in Barcelona"@en ,
+                                   "Hotel situado en Barcelona"@es ;
+                      rdfs:label "Hotel Del Mar Barcelona"@en ,
+                                 "Hotel Del Mar Barcelona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelDelMarCadiz
+:HotelDelMarCadiz rdf:type owl:NamedIndividual ,
+                           :Hotel ;
+                  :hotelIsOfType :BeachHotel ;
+                  :isLocatedIn :Cadiz ;
+                  :hasPricePerNight 283 ;
+                  :hasRating 4.4 ;
+                  :hasStarRating 3 ;
+                  rdfs:comment "Beach Hotel located in Cádiz"@en ,
+                               "Hotel situado en Cádiz"@es ;
+                  rdfs:label "Hotel Del Mar Cádiz"@en ,
+                             "Hotel Del Mar Cádiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelDelMarMadrid
+:HotelDelMarMadrid rdf:type owl:NamedIndividual ,
+                            :Hotel ;
+                   :hotelIsOfType :TouristHotel ;
+                   :isLocatedIn :Madrid ;
+                   :hasPricePerNight 177 ;
+                   :hasRating 4.7 ;
+                   :hasStarRating 4 ;
+                   rdfs:comment "Hotel situado en Madrid"@es ,
+                                "Tusistic Hotel located in Madrid"@en ;
+                   rdfs:label "Hotel Del Mar Madrid"@en ,
+                              "Hotel Del Mar Madrid"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelDelMarMalaga
+:HotelDelMarMalaga rdf:type owl:NamedIndividual ,
+                            :Hotel ;
+                   :hotelIsOfType :BeachHotel ;
+                   :isLocatedIn :Malaga ;
+                   :hasPricePerNight 196 ;
+                   :hasRating 4.7 ;
+                   :hasStarRating 5 ;
+                   rdfs:comment "Beach Hotel located in Málaga"@en ,
+                                "Hotel situado en Málaga"@es ;
+                   rdfs:label "Hotel Del Mar Málaga"@en ,
+                              "Hotel Del Mar Málaga"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelDelMarPamplona
+:HotelDelMarPamplona rdf:type owl:NamedIndividual ,
+                              :Hotel ;
+                     :hotelIsOfType :TouristHotel ;
+                     :isLocatedIn :Pamplona ;
+                     :hasPricePerNight 59 ;
+                     :hasRating 3.6 ;
+                     :hasStarRating 5 ;
+                     rdfs:comment "Hotel situado en Pamplona"@es ,
+                                  "Tusistic Hotel located in Pamplona"@en ;
+                     rdfs:label "Hotel Del Mar Pamplona"@en ,
+                                "Hotel Del Mar Pamplona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelDelMarSanSebastian
+:HotelDelMarSanSebastian rdf:type owl:NamedIndividual ,
+                                  :Hotel ;
+                         :hotelIsOfType :TouristHotel ;
+                         :isLocatedIn :SanSebastian ;
+                         :hasPricePerNight 65 ;
+                         :hasRating 4.1 ;
+                         :hasStarRating 4 ;
+                         rdfs:comment "Hotel situado en San Sebastián"@es ,
+                                      "Tusistic Hotel located in San Sebastián"@en ;
+                         rdfs:label "Hotel Del Mar San Sebastián"@en ,
+                                    "Hotel Del Mar San Sebastián"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelDelMarSevilla
+:HotelDelMarSevilla rdf:type owl:NamedIndividual ,
+                             :Hotel ;
+                    :hotelIsOfType :BeachHotel ;
+                    :isLocatedIn :Sevilla ;
+                    :hasPricePerNight 121 ;
+                    :hasRating 4.2 ;
+                    :hasStarRating 5 ;
+                    rdfs:comment "Beach Hotel located in Sevilla"@en ,
+                                 "Hotel situado en Sevilla"@es ;
+                    rdfs:label "Hotel Del Mar Sevilla"@en ,
+                               "Hotel Del Mar Sevilla"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelDelMarToledo
+:HotelDelMarToledo rdf:type owl:NamedIndividual ,
+                            :Hotel ;
+                   :hotelIsOfType :BeachHotel ;
+                   :isLocatedIn :Toledo ;
+                   :hasPricePerNight 145 ;
+                   :hasRating 4.3 ;
+                   :hasStarRating 5 ;
+                   rdfs:comment "Beach Hotel located in Toledo"@en ,
+                                "Hotel situado en Toledo"@es ;
+                   rdfs:label "Hotel Del Mar Toledo"@en ,
+                              "Hotel Del Mar Toledo"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelDelMarValencia
+:HotelDelMarValencia rdf:type owl:NamedIndividual ,
+                              :Hotel ;
+                     :hotelIsOfType :BusinessHotel ;
+                     :isLocatedIn :Valencia ;
+                     :hasPricePerNight 283 ;
+                     :hasRating 4.7 ;
+                     :hasStarRating 4 ;
+                     rdfs:comment "Business Hotel located in Valencia"@en ,
+                                  "Hotel situado en Valencia"@es ;
+                     rdfs:label "Hotel Del Mar Valencia"@en ,
+                                "Hotel Del Mar Valencia"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelDelMarZaragoza
+:HotelDelMarZaragoza rdf:type owl:NamedIndividual ,
+                              :Hotel ;
+                     :hotelIsOfType :BeachHotel ;
+                     :isLocatedIn :Zaragoza ;
+                     :hasPricePerNight 170 ;
+                     :hasRating 5 ;
+                     :hasStarRating 3 ;
+                     rdfs:comment "Beach Hotel located in Zaragoza"@en ,
+                                  "Hotel situado en Zaragoza"@es ;
+                     rdfs:label "Hotel Del Mar Zaragoza"@en ,
+                                "Hotel Del Mar Zaragoza"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelPalaceBilbao
+:HotelPalaceBilbao rdf:type owl:NamedIndividual ,
+                            :Hotel ;
+                   :hotelIsOfType :TouristHotel ;
+                   :isLocatedIn :Bilbao ;
+                   :hasPricePerNight 286 ;
+                   :hasRating 3.7 ;
+                   :hasStarRating 5 ;
+                   rdfs:comment "Hotel situado en Bilbao"@es ,
+                                "Tusistic Hotel located in Bilbao"@en ;
+                   rdfs:label "Hotel Palace Bilbao"@en ,
+                              "Hotel Palace Bilbao"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelPalaceCadiz
+:HotelPalaceCadiz rdf:type owl:NamedIndividual ,
+                           :Hotel ;
+                  :hotelIsOfType :RuralHotel ;
+                  :isLocatedIn :Cadiz ;
+                  :hasPricePerNight 251 ;
+                  :hasRating 4.4 ;
+                  :hasStarRating 3 ;
+                  rdfs:comment "Hotel situado en Cádiz"@es ,
+                               "Rural Hotel located in Cádiz"@en ;
+                  rdfs:label "Hotel Palace Cádiz"@en ,
+                             "Hotel Palace Cádiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelPalaceMadrid
+:HotelPalaceMadrid rdf:type owl:NamedIndividual ,
+                            :Hotel ;
+                   :hotelIsOfType :RuralHotel ;
+                   :isLocatedIn :Madrid ;
+                   :hasPricePerNight 284 ;
+                   :hasRating 4.1 ;
+                   :hasStarRating 4 ;
+                   rdfs:comment "Hotel situado en Madrid"@es ,
+                                "Rural Hotel located in Madrid"@en ;
+                   rdfs:label "Hotel Palace Madrid"@en ,
+                              "Hotel Palace Madrid"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelPalaceMalaga
+:HotelPalaceMalaga rdf:type owl:NamedIndividual ,
+                            :Hotel ;
+                   :hotelIsOfType :RuralHotel ;
+                   :isLocatedIn :Malaga ;
+                   :hasPricePerNight 198 ;
+                   :hasRating 4.2 ;
+                   :hasStarRating 3 ;
+                   rdfs:comment "Hotel situado en Málaga"@es ,
+                                "Rural Hotel located in Málaga"@en ;
+                   rdfs:label "Hotel Palace Málaga"@en ,
+                              "Hotel Palace Málaga"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelPalacePamplona
+:HotelPalacePamplona rdf:type owl:NamedIndividual ,
+                              :Hotel ;
+                     :hotelIsOfType :TouristHotel ;
+                     :isLocatedIn :Pamplona ;
+                     :hasPricePerNight 177 ;
+                     :hasRating 3.9 ;
+                     :hasStarRating 5 ;
+                     rdfs:comment "Hotel situado en Pamplona"@es ,
+                                  "Tusistic Hotel located in Pamplona"@en ;
+                     rdfs:label "Hotel Palace Pamplona"@en ,
+                                "Hotel Palace Pamplona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelPalaceToledo
+:HotelPalaceToledo rdf:type owl:NamedIndividual ,
+                            :Hotel ;
+                   :hotelIsOfType :LuxuryHotel ;
+                   :isLocatedIn :Toledo ;
+                   :hasPricePerNight 193 ;
+                   :hasRating 4.2 ;
+                   :hasStarRating 5 ;
+                   rdfs:comment "Hotel situado en Toledo"@es ,
+                                "Luxury Hotel located in Toledo"@en ;
+                   rdfs:label "Hotel Palace Toledo"@en ,
+                              "Hotel Palace Toledo"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelPalaceZaragoza
+:HotelPalaceZaragoza rdf:type owl:NamedIndividual ,
+                              :Hotel ;
+                     :hotelIsOfType :BeachHotel ;
+                     :isLocatedIn :Zaragoza ;
+                     :hasPricePerNight 298 ;
+                     :hasRating 3.9 ;
+                     :hasStarRating 5 ;
+                     rdfs:comment "Beach Hotel located in Zaragoza"@en ,
+                                  "Hotel situado en Zaragoza"@es ;
+                     rdfs:label "Hotel Palace Zaragoza"@en ,
+                                "Hotel Palace Zaragoza"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelRoyalBarcelona
+:HotelRoyalBarcelona rdf:type owl:NamedIndividual ,
+                              :Hotel ;
+                     :hotelIsOfType :BeachHotel ;
+                     :isLocatedIn :Barcelona ;
+                     :hasPricePerNight 269 ;
+                     :hasRating 4.9 ;
+                     :hasStarRating 4 ;
+                     rdfs:comment "Beach Hotel located in Barcelona"@en ,
+                                  "Hotel situado en Barcelona"@es ;
+                     rdfs:label "Hotel Royal Barcelona"@en ,
+                                "Hotel Royal Barcelona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelRoyalBilbao
+:HotelRoyalBilbao rdf:type owl:NamedIndividual ,
+                           :Hotel ;
+                  :hotelIsOfType :RuralHotel ;
+                  :isLocatedIn :Bilbao ;
+                  :hasPricePerNight 164 ;
+                  :hasRating 3.7 ;
+                  :hasStarRating 3 ;
+                  rdfs:comment "Hotel situado en Bilbao"@es ,
+                               "Rural Hotel located in Bilbao"@en ;
+                  rdfs:label "Hotel Royal Bilbao"@en ,
+                             "Hotel Royal Bilbao"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelRoyalMalaga
+:HotelRoyalMalaga rdf:type owl:NamedIndividual ,
+                           :Hotel ;
+                  :hotelIsOfType :RuralHotel ;
+                  :isLocatedIn :Malaga ;
+                  :hasPricePerNight 150 ;
+                  :hasRating 4.2 ;
+                  :hasStarRating 3 ;
+                  rdfs:comment "Hotel situado en Málaga"@es ,
+                               "Rural Hotel located in Málaga"@en ;
+                  rdfs:label "Hotel Royal Málaga"@en ,
+                             "Hotel Royal Málaga"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelRoyalPamplona
+:HotelRoyalPamplona rdf:type owl:NamedIndividual ,
+                             :Hotel ;
+                    :hotelIsOfType :RuralHotel ;
+                    :isLocatedIn :Pamplona ;
+                    :hasPricePerNight 116 ;
+                    :hasRating 4.3 ;
+                    :hasStarRating 5 ;
+                    rdfs:comment "Hotel situado en Pamplona"@es ,
+                                 "Rural Hotel located in Pamplona"@en ;
+                    rdfs:label "Hotel Royal Pamplona"@en ,
+                               "Hotel Royal Pamplona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelRoyalSanSebastian
+:HotelRoyalSanSebastian rdf:type owl:NamedIndividual ,
+                                 :Hotel ;
+                        :hotelIsOfType :BusinessHotel ;
+                        :isLocatedIn :SanSebastian ;
+                        :hasPricePerNight 245 ;
+                        :hasRating 4.4 ;
+                        :hasStarRating 5 ;
+                        rdfs:comment "Business Hotel located in San Sebastián"@en ,
+                                     "Hotel situado en San Sebastián"@es ;
+                        rdfs:label "Hotel Royal San Sebastián"@en ,
+                                   "Hotel Royal San Sebastián"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelRoyalValencia
+:HotelRoyalValencia rdf:type owl:NamedIndividual ,
+                             :Hotel ;
+                    :hotelIsOfType :TouristHotel ;
+                    :isLocatedIn :Valencia ;
+                    :hasPricePerNight 76 ;
+                    :hasRating 4.7 ;
+                    :hasStarRating 5 ;
+                    rdfs:comment "Hotel situado en Valencia"@es ,
+                                 "Tusistic Hotel located in Valencia"@en ;
+                    rdfs:label "Hotel Royal Valencia"@en ,
+                               "Hotel Royal Valencia"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelRoyalZaragoza
+:HotelRoyalZaragoza rdf:type owl:NamedIndividual ,
+                             :Hotel ;
+                    :hotelIsOfType :BeachHotel ;
+                    :isLocatedIn :Zaragoza ;
+                    :hasPricePerNight 165 ;
+                    :hasRating 4.6 ;
+                    :hasStarRating 3 ;
+                    rdfs:comment "Beach Hotel located in Zaragoza"@en ,
+                                 "Hotel situado en Zaragoza"@es ;
+                    rdfs:label "Hotel Royal Zaragoza"@en ,
+                               "Hotel Royal Zaragoza"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelSolBarcelona
+:HotelSolBarcelona rdf:type owl:NamedIndividual ,
+                            :Hotel ;
+                   :hotelIsOfType :LuxuryHotel ;
+                   :isLocatedIn :Barcelona ;
+                   :hasPricePerNight 222 ;
+                   :hasRating 4.6 ;
+                   :hasStarRating 4 ;
+                   rdfs:comment "Hotel situado en Barcelona"@es ,
+                                "Luxury Hotel located in Barcelona"@en ;
+                   rdfs:label "Hotel Sol Barcelona"@en ,
+                              "Hotel Sol Barcelona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelSolBilbao
+:HotelSolBilbao rdf:type owl:NamedIndividual ,
+                         :Hotel ;
+                :hotelIsOfType :BusinessHotel ;
+                :isLocatedIn :Bilbao ;
+                :hasPricePerNight 56 ;
+                :hasRating 4.9 ;
+                :hasStarRating 5 ;
+                rdfs:comment "Business Hotel located in Bilbao"@en ,
+                             "Hotel situado en Bilbao"@es ;
+                rdfs:label "Hotel Sol Bilbao"@en ,
+                           "Hotel Sol Bilbao"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelSolCadiz
+:HotelSolCadiz rdf:type owl:NamedIndividual ,
+                        :Hotel ;
+               :hotelIsOfType :BusinessHotel ;
+               :isLocatedIn :Cadiz ;
+               :hasPricePerNight 260 ;
+               :hasRating 4.9 ;
+               :hasStarRating 5 ;
+               rdfs:comment "Business Hotel located in Cádiz"@en ,
+                            "Hotel situado en Cádiz"@es ;
+               rdfs:label "Hotel Sol Cádiz"@en ,
+                          "Hotel Sol Cádiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelSolMadrid
+:HotelSolMadrid rdf:type owl:NamedIndividual ,
+                         :Hotel ;
+                :hotelIsOfType :BusinessHotel ;
+                :isLocatedIn :Madrid ;
+                :hasPricePerNight 114 ;
+                :hasRating 4.9 ;
+                :hasStarRating 3 ;
+                rdfs:comment "Business Hotel located in Madrid"@en ,
+                             "Hotel situado en Madrid"@es ;
+                rdfs:label "Hotel Sol Madrid"@en ,
+                           "Hotel Sol Madrid"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelSolMalaga
+:HotelSolMalaga rdf:type owl:NamedIndividual ,
+                         :Hotel ;
+                :hotelIsOfType :BusinessHotel ;
+                :isLocatedIn :Malaga ;
+                :hasPricePerNight 84 ;
+                :hasRating 4.9 ;
+                :hasStarRating 5 ;
+                rdfs:comment "Business Hotel located in Málaga"@en ,
+                             "Hotel situado en Málaga"@es ;
+                rdfs:label "Hotel Sol Málaga"@en ,
+                           "Hotel Sol Málaga"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelSolSanSebastian
+:HotelSolSanSebastian rdf:type owl:NamedIndividual ,
+                               :Hotel ;
+                      :hotelIsOfType :BusinessHotel ;
+                      :isLocatedIn :SanSebastian ;
+                      :hasPricePerNight 75 ;
+                      :hasRating 4.7 ;
+                      :hasStarRating 4 ;
+                      rdfs:comment "Business Hotel located in San Sebastián"@en ,
+                                   "Hotel situado en San Sebastián"@es ;
+                      rdfs:label "Hotel Sol San Sebastián"@en ,
+                                 "Hotel Sol San Sebastián"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelSolSevilla
+:HotelSolSevilla rdf:type owl:NamedIndividual ,
+                          :Hotel ;
+                 :hotelIsOfType :BeachHotel ;
+                 :isLocatedIn :Sevilla ;
+                 :hasPricePerNight 120 ;
+                 :hasRating 4 ;
+                 :hasStarRating 5 ;
+                 rdfs:comment "Beach Hotel located in Sevilla"@en ,
+                              "Hotel situado en Sevilla"@es ;
+                 rdfs:label "Hotel Sol Sevilla"@en ,
+                            "Hotel Sol Sevilla"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelSolValencia
+:HotelSolValencia rdf:type owl:NamedIndividual ,
+                           :Hotel ;
+                  :hotelIsOfType :LuxuryHotel ;
+                  :isLocatedIn :Valencia ;
+                  :hasPricePerNight 291 ;
+                  :hasRating 4.8 ;
+                  :hasStarRating 5 ;
+                  rdfs:comment "Hotel situado en Valencia"@es ,
+                               "Luxury Hotel located in Valencia"@en ;
+                  rdfs:label "Hotel Sol Valencia"@en ,
+                             "Hotel Sol Valencia"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelVistaBarcelona
+:HotelVistaBarcelona rdf:type owl:NamedIndividual ,
+                              :Hotel ;
+                     :hotelIsOfType :BeachHotel ;
+                     :isLocatedIn :Barcelona ;
+                     :hasPricePerNight 149 ;
+                     :hasRating 4.9 ;
+                     :hasStarRating 3 ;
+                     rdfs:comment "Beach Hotel located in Barcelona"@en ,
+                                  "Hotel situado en Barcelona"@es ;
+                     rdfs:label "Hotel Vista Barcelona"@en ,
+                                "Hotel Vista Barcelona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelVistaBilbao
+:HotelVistaBilbao rdf:type owl:NamedIndividual ,
+                           :Hotel ;
+                  :hotelIsOfType :BusinessHotel ;
+                  :isLocatedIn :Bilbao ;
+                  :hasPricePerNight 253 ;
+                  :hasRating 3.7 ;
+                  :hasStarRating 3 ;
+                  rdfs:comment "Business Hotel located in Bilbao"@en ,
+                               "Hotel situado en Bilbao"@es ;
+                  rdfs:label "Hotel Vista Bilbao"@en ,
+                             "Hotel Vista Bilbao"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelVistaCadiz
+:HotelVistaCadiz rdf:type owl:NamedIndividual ,
+                          :Hotel ;
+                 :hotelIsOfType :TouristHotel ;
+                 :isLocatedIn :Cadiz ;
+                 :hasPricePerNight 254 ;
+                 :hasRating 4.5 ;
+                 :hasStarRating 5 ;
+                 rdfs:comment "Hotel situado en Cádiz"@es ,
+                              "Tusistic Hotel located in Cádiz"@en ;
+                 rdfs:label "Hotel Vista Cádiz"@en ,
+                            "Hotel Vista Cádiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelVistaMadrid
+:HotelVistaMadrid rdf:type owl:NamedIndividual ,
+                           :Hotel ;
+                  :hotelIsOfType :RuralHotel ;
+                  :isLocatedIn :Madrid ;
+                  :hasPricePerNight 150 ;
+                  :hasRating 4 ;
+                  :hasStarRating 4 ;
+                  rdfs:comment "Hotel situado en Madrid"@es ,
+                               "Rural Hotel located in Madrid"@en ;
+                  rdfs:label "Hotel Vista Madrid"@en ,
+                             "Hotel Vista Madrid"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelVistaMalaga
+:HotelVistaMalaga rdf:type owl:NamedIndividual ,
+                           :Hotel ;
+                  :hotelIsOfType :BusinessHotel ;
+                  :isLocatedIn :Malaga ;
+                  :hasPricePerNight 238 ;
+                  :hasRating 4.4 ;
+                  :hasStarRating 5 ;
+                  rdfs:comment "Business Hotel located in Málaga"@en ,
+                               "Hotel situado en Málaga"@es ;
+                  rdfs:label "Hotel Vista Málaga"@en ,
+                             "Hotel Vista Málaga"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelVistaPamplona
+:HotelVistaPamplona rdf:type owl:NamedIndividual ,
+                             :Hotel ;
+                    :hotelIsOfType :RuralHotel ;
+                    :isLocatedIn :Pamplona ;
+                    :hasPricePerNight 109 ;
+                    :hasRating 4.4 ;
+                    :hasStarRating 3 ;
+                    rdfs:comment "Hotel situado en Pamplona"@es ,
+                                 "Rural Hotel located in Pamplona"@en ;
+                    rdfs:label "Hotel Vista Pamplona"@en ,
+                               "Hotel Vista Pamplona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelVistaSanSebastian
+:HotelVistaSanSebastian rdf:type owl:NamedIndividual ,
+                                 :Hotel ;
+                        :hotelIsOfType :BusinessHotel ;
+                        :isLocatedIn :SanSebastian ;
+                        :hasPricePerNight 220 ;
+                        :hasRating 4.5 ;
+                        :hasStarRating 4 ;
+                        rdfs:comment "Business Hotel located in San Sebastián"@en ,
+                                     "Hotel situado en San Sebastián"@es ;
+                        rdfs:label "Hotel Vista San Sebastián"@en ,
+                                   "Hotel Vista San Sebastián"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelVistaSevilla
+:HotelVistaSevilla rdf:type owl:NamedIndividual ,
+                            :Hotel ;
+                   :hotelIsOfType :TouristHotel ;
+                   :isLocatedIn :Sevilla ;
+                   :hasPricePerNight 292 ;
+                   :hasRating 4.9 ;
+                   :hasStarRating 5 ;
+                   rdfs:comment "Hotel situado en Sevilla"@es ,
+                                "Tusistic Hotel located in Sevilla"@en ;
+                   rdfs:label "Hotel Vista Sevilla"@en ,
+                              "Hotel Vista Sevilla"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelVistaToledo
+:HotelVistaToledo rdf:type owl:NamedIndividual ,
+                           :Hotel ;
+                  :hotelIsOfType :BeachHotel ;
+                  :isLocatedIn :Toledo ;
+                  :hasPricePerNight 70 ;
+                  :hasRating 4.6 ;
+                  :hasStarRating 5 ;
+                  rdfs:comment "Beach Hotel located in Toledo"@en ,
+                               "Hotel situado en Toledo"@es ;
+                  rdfs:label "Hotel Vista Toledo"@en ,
+                             "Hotel Vista Toledo"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelVistaValencia
+:HotelVistaValencia rdf:type owl:NamedIndividual ,
+                             :Hotel ;
+                    :hotelIsOfType :TouristHotel ;
+                    :isLocatedIn :Valencia ;
+                    :hasPricePerNight 149 ;
+                    :hasRating 4.6 ;
+                    :hasStarRating 3 ;
+                    rdfs:comment "Hotel situado en Valencia"@es ,
+                                 "Tusistic Hotel located in Valencia"@en ;
+                    rdfs:label "Hotel Vista Valencia"@en ,
+                               "Hotel Vista Valencia"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#HotelVistaZaragoza
+:HotelVistaZaragoza rdf:type owl:NamedIndividual ,
+                             :Hotel ;
+                    :hotelIsOfType :LuxuryHotel ;
+                    :isLocatedIn :Zaragoza ;
+                    :hasPricePerNight 131 ;
+                    :hasRating 4.7 ;
+                    :hasStarRating 5 ;
+                    rdfs:comment "Hotel situado en Zaragoza"@es ,
+                                 "Luxury Hotel located in Zaragoza"@en ;
+                    rdfs:label "Hotel Vista Zaragoza"@en ,
+                               "Hotel Vista Zaragoza"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ItalianFood
+:ItalianFood rdf:type owl:NamedIndividual ,
+                      :FoodType .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#JapaneseFood
+:JapaneseFood rdf:type owl:NamedIndividual ,
+                       :FoodType .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#LuxuryHotel
+:LuxuryHotel rdf:type owl:NamedIndividual ,
+                      :HotelType .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Madrid
+:Madrid rdf:type owl:NamedIndividual ,
+                 :City ;
+        :hasGeoCoordinates :MadridCoordinate ;
+        rdfs:sameAs "https://dbpedia.org/page/Madrid" .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MadridCarnival
+:MadridCarnival rdf:type owl:NamedIndividual ,
+                         :Event ;
+                :eventIsOfType :SportsEvent ;
+                :hasLocation :Madrid ;
+                :hasEventDate "2024-09-27"^^xsd:date ;
+                rdfs:comment "Evento Deportivo en Madrid"@es ,
+                             "Sports event in Madrid"@en ;
+                rdfs:label "Carnaval Madrid"@es ,
+                           "Madrid Carnival"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MadridCoordinate
+:MadridCoordinate rdf:type owl:NamedIndividual ,
+                           :GeoCoordinate .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MadridFair
+:MadridFair rdf:type owl:NamedIndividual ,
+                     :Event ;
+            :eventIsOfType :SportsEvent ;
+            :hasLocation :Madrid ;
+            :hasEventDate "2024-11-07"^^xsd:date ;
+            rdfs:comment "Evento Deportivo en Madrid"@es ,
+                         "Sports event in Madrid"@en ;
+            rdfs:label "Feria Madrid"@es ,
+                       "Madrid Fair"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MadridFestival
+:MadridFestival rdf:type owl:NamedIndividual ,
+                         :Event ;
+                :eventIsOfType :SportsEvent ;
+                :hasLocation :Madrid ;
+                :hasEventDate "2024-08-24"^^xsd:date ;
+                rdfs:comment "Evento Deportivo en Madrid"@es ,
+                             "Sports event in Madrid"@en ;
+                rdfs:label "Festival Madrid"@es ,
+                           "Madrid Festival"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Malaga
+:Malaga rdf:type owl:NamedIndividual ,
+                 :City ;
+        :hasGeoCoordinates :MalagaCoordinate ;
+        rdfs:sameAs "https://dbpedia.org/page/Málaga" .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MalagaCarnival
+:MalagaCarnival rdf:type owl:NamedIndividual ,
+                         :Event ;
+                :eventIsOfType :MusicEvent ;
+                :hasLocation :Malaga ;
+                :hasEventDate "2024-04-13"^^xsd:date ;
+                rdfs:comment "Evento Música en Málaga"@es ,
+                             "Music event in Malaga"@en ;
+                rdfs:label "Carnaval Málaga"@es ,
+                           "Malaga Carnival"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MalagaConcert
+:MalagaConcert rdf:type owl:NamedIndividual ,
+                        :Event ;
+               :eventIsOfType :MusicEvent ;
+               :hasLocation :Malaga ;
+               :hasEventDate "2024-08-12"^^xsd:date ;
+               rdfs:comment "Evento Música en Málaga"@es ,
+                            "Music event in Malaga"@en ;
+               rdfs:label "Concierto Málaga"@es ,
+                          "Malaga Concert"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MalagaCoordinate
+:MalagaCoordinate rdf:type owl:NamedIndividual ,
+                           :GeoCoordinate .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MalagaFair
+:MalagaFair rdf:type owl:NamedIndividual ,
+                     :Event ;
+            :eventIsOfType :CulturalEvent ;
+            :hasLocation :Malaga ;
+            :hasEventDate "2024-05-07"^^xsd:date ;
+            rdfs:comment "Cultural event in Malaga"@en ,
+                         "Evento Cultural en Málaga"@es ;
+            rdfs:label "Feria Málaga"@es ,
+                       "Malaga Fair"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MalagaFestival
+:MalagaFestival rdf:type owl:NamedIndividual ,
+                         :Event ;
+                :eventIsOfType :TechEvent ;
+                :hasLocation :Malaga ;
+                :hasEventDate "2024-03-11"^^xsd:date ;
+                rdfs:comment "Evento Tecnológico en Málaga"@es ,
+                             "Tech event in Malaga"@en ;
+                rdfs:label "Festival Málaga"@es ,
+                           "Malaga Festival"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MediterraneanFood
+:MediterraneanFood rdf:type owl:NamedIndividual ,
+                            :FoodType .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MetroBarcelona
+:MetroBarcelona rdf:type owl:NamedIndividual ,
+                         :TransportCompany ;
+                :hasCompanyName "Metro Barcelona" ;
+                rdfs:comment "Empresa de trasnportes en Barcelona"@es ,
+                             "Transport Company in Barcelona"@en ;
+                rdfs:label "Metro Barcelona"@en ,
+                           "Metro Barcelona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MetroBilbao
+:MetroBilbao rdf:type owl:NamedIndividual ,
+                      :TransportCompany ;
+             :hasCompanyName "Metro Bilbao" ;
+             rdfs:comment "Empresa de trasnportes en Bilbao"@es ,
+                          "Transport Company in Bilbao"@en ;
+             rdfs:label "Metro Bilbao"@en ,
+                        "Metro Bilbao"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MetroCadiz
+:MetroCadiz rdf:type owl:NamedIndividual ,
+                     :TransportCompany ;
+            :hasCompanyName "Metro Cadiz" ;
+            rdfs:comment "Empresa de trasnportes en Cádiz"@es ,
+                         "Transport Company in Cadiz"@en ;
+            rdfs:label "Metro Cadiz"@en ,
+                       "Metro Cádiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MetroMadrid
+:MetroMadrid rdf:type owl:NamedIndividual ,
+                      :TransportCompany ;
+             :hasCompanyName "Metro Madrid" ;
+             rdfs:comment "Empresa de trasnportes en Madrid"@es ,
+                          "Transport Company in Madrid"@en ;
+             rdfs:label "Metro Madrid"@en ,
+                        "Metro Madrid"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MetroMalaga
+:MetroMalaga rdf:type owl:NamedIndividual ,
+                      :TransportCompany ;
+             :hasCompanyName "Metro Malaga" ;
+             rdfs:comment "Empresa de trasnportes en Málaga"@es ,
+                          "Transport Company in Malaga"@en ;
+             rdfs:label "Metro Malaga"@en ,
+                        "Metro Málaga"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MetroPamplona
+:MetroPamplona rdf:type owl:NamedIndividual ,
+                        :TransportCompany ;
+               :hasCompanyName "Metro Pamplona" ;
+               rdfs:comment "Empresa de trasnportes en Pamplona"@es ,
+                            "Transport Company in Pamplona"@en ;
+               rdfs:label "Metro Pamplona"@en ,
+                          "Metro Pamplona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MetroSanSebastian
+:MetroSanSebastian rdf:type owl:NamedIndividual ,
+                            :TransportCompany ;
+                   :hasCompanyName "Metro San Sebastian" ;
+                   rdfs:comment "Empresa de trasnportes en San Sebastián"@es ,
+                                "Transport Company in San Sebastian"@en ;
+                   rdfs:label "Metro San Sebastian"@en ,
+                              "Metro San Sebastián"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MetroSevilla
+:MetroSevilla rdf:type owl:NamedIndividual ,
+                       :TransportCompany ;
+              :hasCompanyName "Metro Sevilla" ;
+              rdfs:comment "Empresa de trasnportes en Sevilla"@es ,
+                           "Transport Company in Sevilla"@en ;
+              rdfs:label "Metro Sevilla"@en ,
+                         "Metro Sevilla"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MetroToledo
+:MetroToledo rdf:type owl:NamedIndividual ,
+                      :TransportCompany ;
+             :hasCompanyName "Metro Toledo" ;
+             rdfs:comment "Empresa de trasnportes en Toledo"@es ,
+                          "Transport Company in Toledo"@en ;
+             rdfs:label "Metro Toledo"@en ,
+                        "Metro Toledo"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MetroTransportMadrid
+:MetroTransportMadrid rdf:type owl:NamedIndividual ,
+                               :Metro ;
+                      :isOfferedIn :Madrid ;
+                      :operatedBy :MetroMadrid ;
+                      :hasAveragePrice 1.4 .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MetroZaragoza
+:MetroZaragoza rdf:type owl:NamedIndividual ,
+                        :TransportCompany ;
+               :hasCompanyName "Metro Zaragoza" ;
+               rdfs:comment "Empresa de trasnportes en Zaragoza"@es ,
+                            "Transport Company in Zaragoza"@en ;
+               rdfs:label "Metro Zaragoza"@en ,
+                          "Metro Zaragoza"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MexicanFood
+:MexicanFood rdf:type owl:NamedIndividual ,
+                      :FoodType .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MoviBarcelona
+:MoviBarcelona rdf:type owl:NamedIndividual ,
+                        :TransportCompany ;
+               :hasCompanyName "Movi Barcelona" ;
+               rdfs:comment "Empresa de trasnportes en Barcelona"@es ,
+                            "Transport Company in Barcelona"@en ;
+               rdfs:label "Movi Barcelona"@en ,
+                          "Movi Barcelona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MoviBilbao
+:MoviBilbao rdf:type owl:NamedIndividual ,
+                     :TransportCompany ;
+            :hasCompanyName "Movi Bilbao" ;
+            rdfs:comment "Empresa de trasnportes en Bilbao"@es ,
+                         "Transport Company in Bilbao"@en ;
+            rdfs:label "Movi Bilbao"@en ,
+                       "Movi Bilbao"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MoviCadiz
+:MoviCadiz rdf:type owl:NamedIndividual ,
+                    :TransportCompany ;
+           :hasCompanyName "Movi Cadiz" ;
+           rdfs:comment "Empresa de trasnportes en Cádiz"@es ,
+                        "Transport Company in Cadiz"@en ;
+           rdfs:label "Movi Cadiz"@en ,
+                      "Movi Cádiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MoviMadrid
+:MoviMadrid rdf:type owl:NamedIndividual ,
+                     :TransportCompany ;
+            :hasCompanyName "Movi Madrid" ;
+            rdfs:comment "Empresa de trasnportes en Madrid"@es ,
+                         "Transport Company in Madrid"@en ;
+            rdfs:label "Movi Madrid"@en ,
+                       "Movi Madrid"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MoviMalaga
+:MoviMalaga rdf:type owl:NamedIndividual ,
+                     :TransportCompany ;
+            :hasCompanyName "Movi Malaga" ;
+            rdfs:comment "Empresa de trasnportes en Málaga"@es ,
+                         "Transport Company in Malaga"@en ;
+            rdfs:label "Movi Malaga"@en ,
+                       "Movi Málaga"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MoviPamplona
+:MoviPamplona rdf:type owl:NamedIndividual ,
+                       :TransportCompany ;
+              :hasCompanyName "Movi Pamplona" ;
+              rdfs:comment "Empresa de trasnportes en Pamplona"@es ,
+                           "Transport Company in Pamplona"@en ;
+              rdfs:label "Movi Pamplona"@en ,
+                         "Movi Pamplona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MoviSanSebastian
+:MoviSanSebastian rdf:type owl:NamedIndividual ,
+                           :TransportCompany ;
+                  :hasCompanyName "Movi San Sebastian" ;
+                  rdfs:comment "Empresa de trasnportes en San Sebastián"@es ,
+                               "Transport Company in San Sebastian"@en ;
+                  rdfs:label "Movi San Sebastian"@en ,
+                             "Movi San Sebastián"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MoviSevilla
+:MoviSevilla rdf:type owl:NamedIndividual ,
+                      :TransportCompany ;
+             :hasCompanyName "Movi Sevilla" ;
+             rdfs:comment "Empresa de trasnportes en Sevilla"@es ,
+                          "Transport Company in Sevilla"@en ;
+             rdfs:label "Movi Sevilla"@en ,
+                        "Movi Sevilla"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MoviToledo
+:MoviToledo rdf:type owl:NamedIndividual ,
+                     :TransportCompany ;
+            :hasCompanyName "Movi Toledo" ;
+            rdfs:comment "Empresa de trasnportes en Toledo"@es ,
+                         "Transport Company in Toledo"@en ;
+            rdfs:label "Movi Toledo"@en ,
+                       "Movi Toledo"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MoviValencia
+:MoviValencia rdf:type owl:NamedIndividual ,
+                       :TransportCompany ;
+              :hasCompanyName "Movi Valencia" ;
+              rdfs:comment "Empresa de trasnportes en Valencia"@es ,
+                           "Transport Company in Valencia"@en ;
+              rdfs:label "Movi Valencia"@en ,
+                         "Movi Valencia"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MuseoBarcelona
+:MuseoBarcelona rdf:type owl:NamedIndividual ,
+                         :Museum ;
+                :isLocatedIn :Barcelona ;
+                :hasRating 3.8 ;
+                rdfs:comment "Museo situado en Barcelona"@es ,
+                             "Museum located in Barcelona"@en ;
+                rdfs:label "Barcelona Museum"@en ,
+                           "Museo Barcelona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MuseoCadiz
+:MuseoCadiz rdf:type owl:NamedIndividual ,
+                     :Beach ;
+            :isLocatedIn :Cadiz ;
+            :hasRating 4.6 ;
+            rdfs:comment "Beach located in Cadiz"@en ,
+                         "Playa situado en Cadiz"@es ;
+            rdfs:label "Cadiz Museum"@en ,
+                       "Museo Cadiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MuseoMadrid
+:MuseoMadrid rdf:type owl:NamedIndividual ,
+                      :Park ;
+             :isLocatedIn :Madrid ;
+             :hasRating 3.5 ;
+             rdfs:comment "Park located in Madrid"@en ,
+                          "Parque situado en Madrid"@es ;
+             rdfs:label "Madrid Museum"@en ,
+                        "Museo Madrid"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MuseoMalaga
+:MuseoMalaga rdf:type owl:NamedIndividual ,
+                      :Park ;
+             :isLocatedIn :Malaga ;
+             :hasRating 4.3 ;
+             rdfs:comment "Park located in Malaga"@en ,
+                          "Parque situado en Malaga"@es ;
+             rdfs:label "Malaga Museum"@en ,
+                        "Museo Malaga"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MuseoPamplona
+:MuseoPamplona rdf:type owl:NamedIndividual ,
+                        :Beach ;
+               :isLocatedIn :Pamplona ;
+               :hasRating 5 ;
+               rdfs:comment "Beach located in Pamplona"@en ,
+                            "Playa situado en Pamplona"@es ;
+               rdfs:label "Museo Pamplona"@es ,
+                          "Pamplona Museum"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MuseoSanSebastian
+:MuseoSanSebastian rdf:type owl:NamedIndividual ,
+                            :Beach ;
+                   :isLocatedIn :SanSebastian ;
+                   :hasRating 4.5 ;
+                   rdfs:comment "Beach located in SanSebastian"@en ,
+                                "Playa situado en SanSebastian"@es ;
+                   rdfs:label "Museo SanSebastian"@es ,
+                              "SanSebastian Museum"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MuseoSevilla
+:MuseoSevilla rdf:type owl:NamedIndividual ,
+                       :Beach ;
+              :isLocatedIn :Sevilla ;
+              :hasRating 4 ;
+              rdfs:comment "Beach located in Sevilla"@en ,
+                           "Playa situado en Sevilla"@es ;
+              rdfs:label "Museo Sevilla"@es ,
+                         "Sevilla Museum"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MuseoToledo
+:MuseoToledo rdf:type owl:NamedIndividual ,
+                      :Cultural ;
+             :isLocatedIn :Toledo ;
+             :hasRating 4.2 ;
+             rdfs:comment "Cultural located in Toledo"@en ,
+                          "Cultural situado en Toledo"@es ;
+             rdfs:label "Museo Toledo"@es ,
+                        "Toledo Museum"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MuseoZaragoza
+:MuseoZaragoza rdf:type owl:NamedIndividual ,
+                        :Park ;
+               :isLocatedIn :Zaragoza ;
+               :hasRating 4.1 ;
+               rdfs:comment "Park located in Zaragoza"@en ,
+                            "Parque situado en Zaragoza"@es ;
+               rdfs:label "Museo Zaragoza"@es ,
+                          "Zaragoza Museum"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MusicEvent
+:MusicEvent rdf:type owl:NamedIndividual ,
+                     :EventType .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#PalacioBarcelona
+:PalacioBarcelona rdf:type owl:NamedIndividual ,
+                           :Beach ;
+                  :isLocatedIn :Barcelona ;
+                  :hasRating 4.3 ;
+                  rdfs:comment "Beach located in Barcelona"@en ,
+                               "Playa situado en Barcelona"@es ;
+                  rdfs:label "Barcelona Palace"@en ,
+                             "Palacio Barcelona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#PalacioBilbao
+:PalacioBilbao rdf:type owl:NamedIndividual ,
+                        :Museum ;
+               :isLocatedIn :Bilbao ;
+               :hasRating 4.9 ;
+               rdfs:comment "Museo situado en Bilbao"@es ,
+                            "Museum located in Bilbao"@en ;
+               rdfs:label "Bilbao Palace"@en ,
+                          "Palacio Bilbao"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#PalacioCadiz
+:PalacioCadiz rdf:type owl:NamedIndividual ,
+                       :Beach ;
+              :isLocatedIn :Cadiz ;
+              :hasRating 4.9 ;
+              rdfs:comment "Beach located in Cadiz"@en ,
+                           "Playa situado en Cadiz"@es ;
+              rdfs:label "Cadiz Palace"@en ,
+                         "Palacio Cadiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#PalacioMadrid
+:PalacioMadrid rdf:type owl:NamedIndividual ,
+                        :Monument ;
+               :isLocatedIn :Madrid ;
+               :hasRating 4.6 ;
+               rdfs:comment "Monument located in Madrid"@en ,
+                            "Monumento situado en Madrid"@es ;
+               rdfs:label "Madrid Palace"@en ,
+                          "Palacio Madrid"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#PalacioMalaga
+:PalacioMalaga rdf:type owl:NamedIndividual ,
+                        :Cultural ;
+               :isLocatedIn :Malaga ;
+               :hasRating 3.9 ;
+               rdfs:comment "Cultural located in Malaga"@en ,
+                            "Cultural situado en Malaga"@es ;
+               rdfs:label "Malaga Palace"@en ,
+                          "Palacio Malaga"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#PalacioPamplona
+:PalacioPamplona rdf:type owl:NamedIndividual ,
+                          :Beach ;
+                 :isLocatedIn :Pamplona ;
+                 :hasRating 4.3 ;
+                 rdfs:comment "Beach located in Pamplona"@en ,
+                              "Playa situado en Pamplona"@es ;
+                 rdfs:label "Palacio Pamplona"@es ,
+                            "Pamplona Palace"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#PalacioToledo
+:PalacioToledo rdf:type owl:NamedIndividual ,
+                        :Monument ;
+               :isLocatedIn :Toledo ;
+               :hasRating 3.6 ;
+               rdfs:comment "Monument located in Toledo"@en ,
+                            "Monumento situado en Toledo"@es ;
+               rdfs:label "Palacio Toledo"@es ,
+                          "Toledo Palace"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#PalacioValencia
+:PalacioValencia rdf:type owl:NamedIndividual ,
+                          :Park ;
+                 :isLocatedIn :Valencia ;
+                 :hasRating 3.8 ;
+                 rdfs:comment "Park located in Valencia"@en ,
+                              "Parque situado en Valencia"@es ;
+                 rdfs:label "Palacio Valencia"@es ,
+                            "Valencia Palace"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#PalacioZaragoza
+:PalacioZaragoza rdf:type owl:NamedIndividual ,
+                          :Park ;
+                 :isLocatedIn :Zaragoza ;
+                 :hasRating 4.4 ;
+                 rdfs:comment "Park located in Zaragoza"@en ,
+                              "Parque situado en Zaragoza"@es ;
+                 rdfs:label "Palacio Zaragoza"@es ,
+                            "Zaragoza Palace"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Pamplona
+:Pamplona rdf:type owl:NamedIndividual ,
+                   :City ;
+          :hasGeoCoordinates :PamplonaCoordinate ;
+          rdfs:sameAs "https://dbpedia.org/page/Pamplona" .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#PamplonaConcert
+:PamplonaConcert rdf:type owl:NamedIndividual ,
+                          :Event ;
+                 :eventIsOfType :SportsEvent ;
+                 :hasLocation :Pamplona ;
+                 :hasEventDate "2024-12-21"^^xsd:date ;
+                 rdfs:comment "Evento Deportivo en Pamplona"@es ,
+                              "Sports event in Pamplona"@en ;
+                 rdfs:label "Concierto Pamplona"@es ,
+                            "Pamplona Concert"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#PamplonaCoordinate
+:PamplonaCoordinate rdf:type owl:NamedIndividual ,
+                             :GeoCoordinate .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#PamplonaFair
+:PamplonaFair rdf:type owl:NamedIndividual ,
+                       :Event ;
+              :eventIsOfType :SportsEvent ;
+              :hasLocation :Pamplona ;
+              :hasEventDate "2024-05-04"^^xsd:date ;
+              rdfs:comment "Evento Deportivo en Pamplona"@es ,
+                           "Sports event in Pamplona"@en ;
+              rdfs:label "Feria Pamplona"@es ,
+                         "Pamplona Fair"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ParqueBarcelona
+:ParqueBarcelona rdf:type owl:NamedIndividual ,
+                          :Park ;
+                 :isLocatedIn :Barcelona ;
+                 :hasRating 4.9 ;
+                 rdfs:comment "Park located in Barcelona"@en ,
+                              "Parque situado en Barcelona"@es ;
+                 rdfs:label "Barcelona Park"@en ,
+                            "Parque Barcelona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ParqueBilbao
+:ParqueBilbao rdf:type owl:NamedIndividual ,
+                       :Beach ;
+              :isLocatedIn :Bilbao ;
+              :hasRating 4.6 ;
+              rdfs:comment "Beach located in Bilbao"@en ,
+                           "Playa situado en Bilbao"@es ;
+              rdfs:label "Bilbao Park"@en ,
+                         "Parque Bilbao"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ParqueCadiz
+:ParqueCadiz rdf:type owl:NamedIndividual ,
+                      :Park ;
+             :isLocatedIn :Cadiz ;
+             :hasRating 4.6 ;
+             rdfs:comment "Park located in Cadiz"@en ,
+                          "Parque situado en Cadiz"@es ;
+             rdfs:label "Cadiz Park"@en ,
+                        "Parque Cadiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ParqueMadrid
+:ParqueMadrid rdf:type owl:NamedIndividual ,
+                       :Park ;
+              :isLocatedIn :Madrid ;
+              :hasRating 4.9 ;
+              rdfs:comment "Park located in Madrid"@en ,
+                           "Parque situado en Madrid"@es ;
+              rdfs:label "Madrid Park"@en ,
+                         "Parque Madrid"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ParqueMalaga
+:ParqueMalaga rdf:type owl:NamedIndividual ,
+                       :Museum ;
+              :isLocatedIn :Malaga ;
+              :hasRating 4 ;
+              rdfs:comment "Museo situado en Malaga"@es ,
+                           "Museum located in Malaga"@en ;
+              rdfs:label "Malaga Park"@en ,
+                         "Parque Malaga"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ParquePamplona
+:ParquePamplona rdf:type owl:NamedIndividual ,
+                         :Monument ;
+                :isLocatedIn :Pamplona ;
+                :hasRating 4.1 ;
+                rdfs:comment "Monument located in Pamplona"@en ,
+                             "Monumento situado en Pamplona"@es ;
+                rdfs:label "Pamplona Park"@en ,
+                           "Parque Pamplona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ParqueSanSebastian
+:ParqueSanSebastian rdf:type owl:NamedIndividual ,
+                             :Park ;
+                    :isLocatedIn :SanSebastian ;
+                    :hasRating 4.8 ;
+                    rdfs:comment "Park located in SanSebastian"@en ,
+                                 "Parque situado en SanSebastian"@es ;
+                    rdfs:label "Parque SanSebastian"@es ,
+                               "SanSebastian Park"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ParqueSevilla
+:ParqueSevilla rdf:type owl:NamedIndividual ,
+                        :Cultural ;
+               :isLocatedIn :Sevilla ;
+               :hasRating 4.6 ;
+               rdfs:comment "Cultural located in Sevilla"@en ,
+                            "Cultural situado en Sevilla"@es ;
+               rdfs:label "Parque Sevilla"@es ,
+                          "Sevilla Park"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ParqueToledo
+:ParqueToledo rdf:type owl:NamedIndividual ,
+                       :Monument ;
+              :isLocatedIn :Toledo ;
+              :hasRating 4.8 ;
+              rdfs:comment "Monument located in Toledo"@en ,
+                           "Monumento situado en Toledo"@es ;
+              rdfs:label "Parque Toledo"@es ,
+                         "Toledo Park"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ParqueValencia
+:ParqueValencia rdf:type owl:NamedIndividual ,
+                         :Museum ;
+                :isLocatedIn :Valencia ;
+                :hasRating 3.7 ;
+                rdfs:comment "Museo situado en Valencia"@es ,
+                             "Museum located in Valencia"@en ;
+                rdfs:label "Parque Valencia"@es ,
+                           "Valencia Park"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ParqueZaragoza
+:ParqueZaragoza rdf:type owl:NamedIndividual ,
+                         :Museum ;
+                :isLocatedIn :Zaragoza ;
+                :hasRating 4.5 ;
+                rdfs:comment "Museo situado en Zaragoza"@es ,
+                             "Museum located in Zaragoza"@en ;
+                rdfs:label "Parque Zaragoza"@es ,
+                           "Zaragoza Park"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantDeliciaBilbao
+:RestaurantDeliciaBilbao rdf:type owl:NamedIndividual ,
+                                  :Restaurant ;
+                         :isLocatedIn :Bilbao ;
+                         :servesSpecialty :ItalianFood ;
+                         :hasAveragePricePerPerson 66 ;
+                         :hasRating 4.4 ;
+                         rdfs:comment "Italian food restaurant in Bilbao"@en ,
+                                      "Restaurante de comida Italiana en Bilbao"@es ;
+                         rdfs:label "Restaurant Delicia Bilbao"@en ,
+                                    "Restaurante Delicia Bilbao"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantDeliciaCadiz
+:RestaurantDeliciaCadiz rdf:type owl:NamedIndividual ,
+                                 :Restaurant ;
+                        :isLocatedIn :Cadiz ;
+                        :servesSpecialty :MexicanFood ;
+                        :hasAveragePricePerPerson 16 ;
+                        :hasRating 4.7 ;
+                        rdfs:comment "Mexican food restaurant in Cadiz"@en ,
+                                     "Restaurante de comida Mexicana en Cádiz"@es ;
+                        rdfs:label "Restaurant Delicia Cadiz"@en ,
+                                   "Restaurante Delicia Cádiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantDeliciaMadrid
+:RestaurantDeliciaMadrid rdf:type owl:NamedIndividual ,
+                                  :Restaurant ;
+                         :isLocatedIn :Madrid ;
+                         :servesSpecialty :MexicanFood ;
+                         :hasAveragePricePerPerson 16 ;
+                         :hasRating 4.7 ;
+                         rdfs:comment "Mexican food restaurant in Madrid"@en ,
+                                      "Restaurante de comida Mexicana en Madrid"@es ;
+                         rdfs:label "Restaurant Delicia Madrid"@en ,
+                                    "Restaurante Delicia Madrid"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantDeliciaMalaga
+:RestaurantDeliciaMalaga rdf:type owl:NamedIndividual ,
+                                  :Restaurant ;
+                         :isLocatedIn :Malaga ;
+                         :servesSpecialty :JapaneseFood ;
+                         :hasAveragePricePerPerson 70 ;
+                         :hasRating 3.7 ;
+                         rdfs:comment "Japanese food restaurant in Malaga"@en ,
+                                      "Restaurante de comida Japonesa en Málaga"@es ;
+                         rdfs:label "Restaurant Delicia Malaga"@en ,
+                                    "Restaurante Delicia Málaga"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantDeliciaPamplona
+:RestaurantDeliciaPamplona rdf:type owl:NamedIndividual ,
+                                    :Restaurant ;
+                           :isLocatedIn :Pamplona ;
+                           :servesSpecialty :AndalusianFood ;
+                           :hasAveragePricePerPerson 42 ;
+                           :hasRating 3.6 ;
+                           rdfs:comment "Andalusian food restaurant in Pamplona"@en ,
+                                        "Restaurante de comida Andaluza en Pamplona"@es ;
+                           rdfs:label "Restaurant Delicia Pamplona"@en ,
+                                      "Restaurante Delicia Pamplona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantDeliciaSanSebastian
+:RestaurantDeliciaSanSebastian rdf:type owl:NamedIndividual ,
+                                        :Restaurant ;
+                               :isLocatedIn :SanSebastian ;
+                               :servesSpecialty :JapaneseFood ;
+                               :hasAveragePricePerPerson 56 ;
+                               :hasRating 3.5 ;
+                               rdfs:comment "Japanese food restaurant in San Sebastian"@en ,
+                                            "Restaurante de comida Japonesa en San Sebastián"@es ;
+                               rdfs:label "Restaurant Delicia San Sebastian"@en ,
+                                          "Restaurante Delicia San Sebastián"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantDeliciaSevilla
+:RestaurantDeliciaSevilla rdf:type owl:NamedIndividual ,
+                                   :Restaurant ;
+                          :isLocatedIn :Sevilla ;
+                          :servesSpecialty :MexicanFood ;
+                          :hasAveragePricePerPerson 43 ;
+                          :hasRating 4.9 ;
+                          rdfs:comment "Mexican food restaurant in Sevilla"@en ,
+                                       "Restaurante de comida Mexicana en Sevilla"@es ;
+                          rdfs:label "Restaurant Delicia Sevilla"@en ,
+                                     "Restaurante Delicia Sevilla"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantDeliciaValencia
+:RestaurantDeliciaValencia rdf:type owl:NamedIndividual ,
+                                    :Restaurant ;
+                           :isLocatedIn :Valencia ;
+                           :servesSpecialty :MediterraneanFood ;
+                           :hasAveragePricePerPerson 61 ;
+                           :hasRating 3.7 ;
+                           rdfs:comment "Mediterranean food restaurant in Valencia"@en ,
+                                        "Restaurante de comida Mediterránea en Valencia"@es ;
+                           rdfs:label "Restaurant Delicia Valencia"@en ,
+                                      "Restaurante Delicia Valencia"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantFusionBarcelona
+:RestaurantFusionBarcelona rdf:type owl:NamedIndividual ,
+                                    :Restaurant ;
+                           :isLocatedIn :Barcelona ;
+                           :servesSpecialty :MexicanFood ;
+                           :hasAveragePricePerPerson 43 ;
+                           :hasRating 3.8 ;
+                           rdfs:comment "Mexican food restaurant in Barcelona"@en ,
+                                        "Restaurante de comida Mexicana en Barcelona"@es ;
+                           rdfs:label "Restaurant Fusion Barcelona"@en ,
+                                      "Restaurante Fusión Barcelona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantFusionBilbao
+:RestaurantFusionBilbao rdf:type owl:NamedIndividual ,
+                                 :Restaurant ;
+                        :isLocatedIn :Bilbao ;
+                        :servesSpecialty :MexicanFood ;
+                        :hasAveragePricePerPerson 46 ;
+                        :hasRating 5 ;
+                        rdfs:comment "Mexican food restaurant in Bilbao"@en ,
+                                     "Restaurante de comida Mexicana en Bilbao"@es ;
+                        rdfs:label "Restaurant Fusion Bilbao"@en ,
+                                   "Restaurante Fusión Bilbao"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantFusionCadiz
+:RestaurantFusionCadiz rdf:type owl:NamedIndividual ,
+                                :Restaurant ;
+                       :isLocatedIn :Cadiz ;
+                       :servesSpecialty :MexicanFood ;
+                       :hasAveragePricePerPerson 18 ;
+                       :hasRating 4.8 ;
+                       rdfs:comment "Mexican food restaurant in Cadiz"@en ,
+                                    "Restaurante de comida Mexicana en Cádiz"@es ;
+                       rdfs:label "Restaurant Fusion Cadiz"@en ,
+                                  "Restaurante Fusión Cádiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantFusionMadrid
+:RestaurantFusionMadrid rdf:type owl:NamedIndividual ,
+                                 :Restaurant ;
+                        :isLocatedIn :Madrid ;
+                        :servesSpecialty :ItalianFood ;
+                        :hasAveragePricePerPerson 43 ;
+                        :hasRating 4.6 ;
+                        rdfs:comment "Italian food restaurant in Madrid"@en ,
+                                     "Restaurante de comida Italiana en Madrid"@es ;
+                        rdfs:label "Restaurant Fusion Madrid"@en ,
+                                   "Restaurante Fusión Madrid"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantFusionPamplona
+:RestaurantFusionPamplona rdf:type owl:NamedIndividual ,
+                                   :Restaurant ;
+                          :isLocatedIn :Pamplona ;
+                          :servesSpecialty :AndalusianFood ;
+                          :hasAveragePricePerPerson 40 ;
+                          :hasRating 4.1 ;
+                          rdfs:comment "Andalusian food restaurant in Pamplona"@en ,
+                                       "Restaurante de comida Andaluza en Pamplona"@es ;
+                          rdfs:label "Restaurant Fusion Pamplona"@en ,
+                                     "Restaurante Fusión Pamplona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantFusionSevilla
+:RestaurantFusionSevilla rdf:type owl:NamedIndividual ,
+                                  :Restaurant ;
+                         :isLocatedIn :Sevilla ;
+                         :servesSpecialty :ItalianFood ;
+                         :hasAveragePricePerPerson 11 ;
+                         :hasRating 4.9 ;
+                         rdfs:comment "Italian food restaurant in Sevilla"@en ,
+                                      "Restaurante de comida Italiana en Sevilla"@es ;
+                         rdfs:label "Restaurant Fusion Sevilla"@en ,
+                                    "Restaurante Fusión Sevilla"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantFusionToledo
+:RestaurantFusionToledo rdf:type owl:NamedIndividual ,
+                                 :Restaurant ;
+                        :isLocatedIn :Toledo ;
+                        :servesSpecialty :MexicanFood ;
+                        :hasAveragePricePerPerson 70 ;
+                        :hasRating 4 ;
+                        rdfs:comment "Mexican food restaurant in Toledo"@en ,
+                                     "Restaurante de comida Mexicana en Toledo"@es ;
+                        rdfs:label "Restaurant Fusion Toledo"@en ,
+                                   "Restaurante Fusión Toledo"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantFusionZaragoza
+:RestaurantFusionZaragoza rdf:type owl:NamedIndividual ,
+                                   :Restaurant ;
+                          :isLocatedIn :Zaragoza ;
+                          :servesSpecialty :AndalusianFood ;
+                          :hasAveragePricePerPerson 77 ;
+                          :hasRating 3.9 ;
+                          rdfs:comment "Andalusian food restaurant in Zaragoza"@en ,
+                                       "Restaurante de comida Andaluza en Zaragoza"@es ;
+                          rdfs:label "Restaurant Fusion Zaragoza"@en ,
+                                     "Restaurante Fusión Zaragoza"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantGourmetBarcelona
+:RestaurantGourmetBarcelona rdf:type owl:NamedIndividual ,
+                                     :Restaurant ;
+                            :isLocatedIn :Barcelona ;
+                            :servesSpecialty :JapaneseFood ;
+                            :hasAveragePricePerPerson 68 ;
+                            :hasRating 4.9 ;
+                            rdfs:comment "Japanese food restaurant in Barcelona"@en ,
+                                         "Restaurante de comida Japonesa en Barcelona"@es ;
+                            rdfs:label "Restaurant Gourmet Barcelona"@en ,
+                                       "Restaurante Gourmet Barcelona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantGourmetCadiz
+:RestaurantGourmetCadiz rdf:type owl:NamedIndividual ,
+                                 :Restaurant ;
+                        :isLocatedIn :Cadiz ;
+                        :servesSpecialty :ItalianFood ;
+                        :hasAveragePricePerPerson 68 ;
+                        :hasRating 4.3 ;
+                        rdfs:comment "Italian food restaurant in Cadiz"@en ,
+                                     "Restaurante de comida Italiana en Cádiz"@es ;
+                        rdfs:label "Restaurant Gourmet Cadiz"@en ,
+                                   "Restaurante Gourmet Cádiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantGourmetMadrid
+:RestaurantGourmetMadrid rdf:type owl:NamedIndividual ,
+                                  :Restaurant ;
+                         :isLocatedIn :Madrid ;
+                         :servesSpecialty :AndalusianFood ;
+                         :hasAveragePricePerPerson 46 ;
+                         :hasRating 3.8 ;
+                         rdfs:comment "Andalusian food restaurant in Madrid"@en ,
+                                      "Restaurante de comida Andaluza en Madrid"@es ;
+                         rdfs:label "Restaurant Gourmet Madrid"@en ,
+                                    "Restaurante Gourmet Madrid"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantGourmetMalaga
+:RestaurantGourmetMalaga rdf:type owl:NamedIndividual ,
+                                  :Restaurant ;
+                         :isLocatedIn :Malaga ;
+                         :servesSpecialty :JapaneseFood ;
+                         :hasAveragePricePerPerson 36 ;
+                         :hasRating 4.7 ;
+                         rdfs:comment "Japanese food restaurant in Malaga"@en ,
+                                      "Restaurante de comida Japonesa en Málaga"@es ;
+                         rdfs:label "Restaurant Gourmet Malaga"@en ,
+                                    "Restaurante Gourmet Málaga"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantGourmetPamplona
+:RestaurantGourmetPamplona rdf:type owl:NamedIndividual ,
+                                    :Restaurant ;
+                           :isLocatedIn :Pamplona ;
+                           :servesSpecialty :ItalianFood ;
+                           :hasAveragePricePerPerson 32 ;
+                           :hasRating 4.4 ;
+                           rdfs:comment "Italian food restaurant in Pamplona"@en ,
+                                        "Restaurante de comida Italiana en Pamplona"@es ;
+                           rdfs:label "Restaurant Gourmet Pamplona"@en ,
+                                      "Restaurante Gourmet Pamplona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantGourmetSevilla
+:RestaurantGourmetSevilla rdf:type owl:NamedIndividual ,
+                                   :Restaurant ;
+                          :isLocatedIn :Sevilla ;
+                          :servesSpecialty :AndalusianFood ;
+                          :hasAveragePricePerPerson 11 ;
+                          :hasRating 3.8 ;
+                          rdfs:comment "Andalusian food restaurant in Sevilla"@en ,
+                                       "Restaurante de comida Andaluza en Sevilla"@es ;
+                          rdfs:label "Restaurant Gourmet Sevilla"@en ,
+                                     "Restaurante Gourmet Sevilla"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantGourmetToledo
+:RestaurantGourmetToledo rdf:type owl:NamedIndividual ,
+                                  :Restaurant ;
+                         :isLocatedIn :Toledo ;
+                         :servesSpecialty :ItalianFood ;
+                         :hasAveragePricePerPerson 19 ;
+                         :hasRating 4.2 ;
+                         rdfs:comment "Italian food restaurant in Toledo"@en ,
+                                      "Restaurante de comida Italiana en Toledo"@es ;
+                         rdfs:label "Restaurant Gourmet Toledo"@en ,
+                                    "Restaurante Gourmet Toledo"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantGourmetValencia
+:RestaurantGourmetValencia rdf:type owl:NamedIndividual ,
+                                    :Restaurant ;
+                           :isLocatedIn :Valencia ;
+                           :servesSpecialty :AndalusianFood ;
+                           :hasAveragePricePerPerson 59 ;
+                           :hasRating 4.6 ;
+                           rdfs:comment "Andalusian food restaurant in Valencia"@en ,
+                                        "Restaurante de comida Andaluza en Valencia"@es ;
+                           rdfs:label "Restaurant Gourmet Valencia"@en ,
+                                      "Restaurante Gourmet Valencia"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantGourmetZaragoza
+:RestaurantGourmetZaragoza rdf:type owl:NamedIndividual ,
+                                    :Restaurant ;
+                           :isLocatedIn :Zaragoza ;
+                           :servesSpecialty :MediterraneanFood ;
+                           :hasAveragePricePerPerson 27 ;
+                           :hasRating 4.6 ;
+                           rdfs:comment "Mediterranean food restaurant in Zaragoza"@en ,
+                                        "Restaurante de comida Mediterránea en Zaragoza"@es ;
+                           rdfs:label "Restaurant Gourmet Zaragoza"@en ,
+                                      "Restaurante Gourmet Zaragoza"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantSaborCadiz
+:RestaurantSaborCadiz rdf:type owl:NamedIndividual ,
+                               :Restaurant ;
+                      :isLocatedIn :Cadiz ;
+                      :servesSpecialty :MexicanFood ;
+                      :hasAveragePricePerPerson 34 ;
+                      :hasRating 3.6 ;
+                      rdfs:comment "Mexican food restaurant in Cadiz"@en ,
+                                   "Restaurante de comida Mexicana en Cádiz"@es ;
+                      rdfs:label "Restaurant Sabor Cadiz"@en ,
+                                 "Restaurante Sabor Cádiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantSaborValencia
+:RestaurantSaborValencia rdf:type owl:NamedIndividual ,
+                                  :Restaurant ;
+                         :isLocatedIn :Valencia ;
+                         :servesSpecialty :MediterraneanFood ;
+                         :hasAveragePricePerPerson 28 ;
+                         :hasRating 4.2 ;
+                         rdfs:comment "Mediterranean food restaurant in Valencia"@en ,
+                                      "Restaurante de comida Mediterránea en Valencia"@es ;
+                         rdfs:label "Restaurant Sabor Valencia"@en ,
+                                    "Restaurante Sabor Valencia"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantSaborZaragoza
+:RestaurantSaborZaragoza rdf:type owl:NamedIndividual ,
+                                  :Restaurant ;
+                         :isLocatedIn :Zaragoza ;
+                         :servesSpecialty :ItalianFood ;
+                         :hasAveragePricePerPerson 58 ;
+                         :hasRating 4.6 ;
+                         rdfs:comment "Italian food restaurant in Zaragoza"@en ,
+                                      "Restaurante de comida Italiana en Zaragoza"@es ;
+                         rdfs:label "Restaurant Sabor Zaragoza"@en ,
+                                    "Restaurante Sabor Zaragoza"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantTradicionCadiz
+:RestaurantTradicionCadiz rdf:type owl:NamedIndividual ,
+                                   :Restaurant ;
+                          :isLocatedIn :Cadiz ;
+                          :servesSpecialty :ItalianFood ;
+                          :hasAveragePricePerPerson 41 ;
+                          :hasRating 4 ;
+                          rdfs:comment "Italian food restaurant in Cadiz"@en ,
+                                       "Restaurante de comida Italiana en Cádiz"@es ;
+                          rdfs:label "Restaurant Tradicion Cadiz"@en ,
+                                     "Restaurante Tradición Cádiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantTradicionMadrid
+:RestaurantTradicionMadrid rdf:type owl:NamedIndividual ,
+                                    :Restaurant ;
+                           :isLocatedIn :Madrid ;
+                           :servesSpecialty :JapaneseFood ;
+                           :hasAveragePricePerPerson 30 ;
+                           :hasRating 4 ;
+                           rdfs:comment "Japanese food restaurant in Madrid"@en ,
+                                        "Restaurante de comida Japonesa en Madrid"@es ;
+                           rdfs:label "Restaurant Tradicion Madrid"@en ,
+                                      "Restaurante Tradición Madrid"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantTradicionMalaga
+:RestaurantTradicionMalaga rdf:type owl:NamedIndividual ,
+                                    :Restaurant ;
+                           :isLocatedIn :Malaga ;
+                           :servesSpecialty :JapaneseFood ;
+                           :hasAveragePricePerPerson 35 ;
+                           :hasRating 4.1 ;
+                           rdfs:comment "Japanese food restaurant in Malaga"@en ,
+                                        "Restaurante de comida Japonesa en Málaga"@es ;
+                           rdfs:label "Restaurant Tradicion Malaga"@en ,
+                                      "Restaurante Tradición Málaga"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantTradicionSanSebastian
+:RestaurantTradicionSanSebastian rdf:type owl:NamedIndividual ,
+                                          :Restaurant ;
+                                 :isLocatedIn :SanSebastian ;
+                                 :servesSpecialty :JapaneseFood ;
+                                 :hasAveragePricePerPerson 45 ;
+                                 :hasRating 5 ;
+                                 rdfs:comment "Japanese food restaurant in San Sebastian"@en ,
+                                              "Restaurante de comida Japonesa en San Sebastián"@es ;
+                                 rdfs:label "Restaurant Tradicion San Sebastian"@en ,
+                                            "Restaurante Tradición San Sebastián"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantTradicionSevilla
+:RestaurantTradicionSevilla rdf:type owl:NamedIndividual ,
+                                     :Restaurant ;
+                            :isLocatedIn :Sevilla ;
+                            :servesSpecialty :ItalianFood ;
+                            :hasAveragePricePerPerson 15 ;
+                            :hasRating 4.5 ;
+                            rdfs:comment "Italian food restaurant in Sevilla"@en ,
+                                         "Restaurante de comida Italiana en Sevilla"@es ;
+                            rdfs:label "Restaurant Tradicion Sevilla"@en ,
+                                       "Restaurante Tradición Sevilla"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantTradicionToledo
+:RestaurantTradicionToledo rdf:type owl:NamedIndividual ,
+                                    :Restaurant ;
+                           :isLocatedIn :Toledo ;
+                           :servesSpecialty :JapaneseFood ;
+                           :hasAveragePricePerPerson 38 ;
+                           :hasRating 4.8 ;
+                           rdfs:comment "Japanese food restaurant in Toledo"@en ,
+                                        "Restaurante de comida Japonesa en Toledo"@es ;
+                           rdfs:label "Restaurant Tradicion Toledo"@en ,
+                                      "Restaurante Tradición Toledo"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RestaurantTradicionZaragoza
+:RestaurantTradicionZaragoza rdf:type owl:NamedIndividual ,
+                                      :Restaurant ;
+                             :isLocatedIn :Zaragoza ;
+                             :servesSpecialty :AndalusianFood ;
+                             :hasAveragePricePerPerson 56 ;
+                             :hasRating 4.4 ;
+                             rdfs:comment "Andalusian food restaurant in Zaragoza"@en ,
+                                          "Restaurante de comida Andaluza en Zaragoza"@es ;
+                             rdfs:label "Restaurant Tradicion Zaragoza"@en ,
+                                        "Restaurante Tradición Zaragoza"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#RuralHotel
+:RuralHotel rdf:type owl:NamedIndividual ,
+                     :HotelType .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#SanSebastian
+:SanSebastian rdf:type owl:NamedIndividual ,
+                       :City ;
+              :hasGeoCoordinates :SanSebastianCoordinate ;
+              rdfs:sameAs "https://dbpedia.org/page/San_Sebastián" .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#SanSebastianCarnival
+:SanSebastianCarnival rdf:type owl:NamedIndividual ,
+                               :Event ;
+                      :eventIsOfType :CulturalEvent ;
+                      :hasLocation :SanSebastian ;
+                      :hasEventDate "2024-02-04"^^xsd:date ;
+                      rdfs:comment "Cultural event in San Sebastian"@en ,
+                                   "Evento Cultural en San Sebastián"@es ;
+                      rdfs:label "Carnaval San Sebastián"@es ,
+                                 "San Sebastian Carnival"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#SanSebastianConcert
+:SanSebastianConcert rdf:type owl:NamedIndividual ,
+                              :Event ;
+                     :eventIsOfType :GastronomicEvent ;
+                     :hasLocation :SanSebastian ;
+                     :hasEventDate "2024-11-20"^^xsd:date ;
+                     rdfs:comment "Evento Gastronómico en San Sebastián"@es ,
+                                  "Gastronomic event in San Sebastian"@en ;
+                     rdfs:label "Concierto San Sebastián"@es ,
+                                "San Sebastian Concert"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#SanSebastianCongress
+:SanSebastianCongress rdf:type owl:NamedIndividual ,
+                               :Event ;
+                      :eventIsOfType :MusicEvent ;
+                      :hasLocation :SanSebastian ;
+                      :hasEventDate "2024-06-04"^^xsd:date ;
+                      rdfs:comment "Evento Música en San Sebastián"@es ,
+                                   "Music event in San Sebastian"@en ;
+                      rdfs:label "Congreso San Sebastián"@es ,
+                                 "San Sebastian Congress"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#SanSebastianCoordinate
+:SanSebastianCoordinate rdf:type owl:NamedIndividual ,
+                                 :GeoCoordinate .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#SanSebastianFestival
+:SanSebastianFestival rdf:type owl:NamedIndividual ,
+                               :Event ;
+                      :eventIsOfType :CulturalEvent ;
+                      :hasLocation :SanSebastian ;
+                      :hasEventDate "2024-06-02"^^xsd:date ;
+                      rdfs:comment "Cultural event in San Sebastian"@en ,
+                                   "Evento Cultural en San Sebastián"@es ;
+                      rdfs:label "Festival San Sebastián"@es ,
+                                 "San Sebastian Festival"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Sevilla
+:Sevilla rdf:type owl:NamedIndividual ,
+                  :City ;
+         :hasGeoCoordinates :SevillaCoordinate ;
+         rdfs:sameAs "https://dbpedia.org/page/Sevilla" .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#SevillaCarnival
+:SevillaCarnival rdf:type owl:NamedIndividual ,
+                          :Event ;
+                 :eventIsOfType :TechEvent ;
+                 :hasLocation :Sevilla ;
+                 :hasEventDate "2024-03-09"^^xsd:date ;
+                 rdfs:comment "Evento Tecnológico en Sevilla"@es ,
+                              "Tech event in Sevilla"@en ;
+                 rdfs:label "Carnaval Sevilla"@es ,
+                            "Sevilla Carnival"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#SevillaConcert
+:SevillaConcert rdf:type owl:NamedIndividual ,
+                         :Event ;
+                :eventIsOfType :TechEvent ;
+                :hasLocation :Sevilla ;
+                :hasEventDate "2024-02-22"^^xsd:date ;
+                rdfs:comment "Evento Tecnológico en Sevilla"@es ,
+                             "Tech event in Sevilla"@en ;
+                rdfs:label "Concierto Sevilla"@es ,
+                           "Sevilla Concert"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#SevillaCongress
+:SevillaCongress rdf:type owl:NamedIndividual ,
+                          :Event ;
+                 :eventIsOfType :GastronomicEvent ;
+                 :hasLocation :Sevilla ;
+                 :hasEventDate "2024-10-24"^^xsd:date ;
+                 rdfs:comment "Evento Gastronómico en Sevilla"@es ,
+                              "Gastronomic event in Sevilla"@en ;
+                 rdfs:label "Congreso Sevilla"@es ,
+                            "Sevilla Congress"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#SevillaCoordinate
+:SevillaCoordinate rdf:type owl:NamedIndividual ,
+                            :GeoCoordinate .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#SevillaFair
+:SevillaFair rdf:type owl:NamedIndividual ,
+                      :Event ;
+             :eventIsOfType :GastronomicEvent ;
+             :hasLocation :Sevilla ;
+             :hasEventDate "2024-11-09"^^xsd:date ;
+             rdfs:comment "Evento Gastronómico en Sevilla"@es ,
+                          "Gastronomic event in Sevilla"@en ;
+             rdfs:label "Feria Sevilla"@es ,
+                        "Sevilla Fair"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#SevillaFestival
+:SevillaFestival rdf:type owl:NamedIndividual ,
+                          :Event ;
+                 :eventIsOfType :CulturalEvent ;
+                 :hasLocation :Sevilla ;
+                 :hasEventDate "2024-08-16"^^xsd:date ;
+                 rdfs:comment "Cultural event in Sevilla"@en ,
+                              "Evento Cultural en Sevilla"@es ;
+                 rdfs:label "Festival Sevilla"@es ,
+                            "Sevilla Festival"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#SportsEvent
+:SportsEvent rdf:type owl:NamedIndividual ,
+                      :EventType .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#TaxiCadiz
+:TaxiCadiz rdf:type owl:NamedIndividual ,
+                    :Taxi ;
+           :isOfferedIn :Cadiz ;
+           :operatedBy :MoviCadiz ;
+           :hasAveragePrice 25 .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#TechEvent
+:TechEvent rdf:type owl:NamedIndividual ,
+                    :EventType .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Toledo
+:Toledo rdf:type owl:NamedIndividual ,
+                 :City ;
+        :hasGeoCoordinates :ToledoCoordinate ;
+        rdfs:sameAs "https://dbpedia.org/page/Toledo,_Spain" .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ToledoCarnival
+:ToledoCarnival rdf:type owl:NamedIndividual ,
+                         :Event ;
+                :eventIsOfType :GastronomicEvent ;
+                :hasLocation :Toledo ;
+                :hasEventDate "2024-12-16"^^xsd:date ;
+                rdfs:comment "Evento Gastronómico en Toledo"@es ,
+                             "Gastronomic event in Toledo"@en ;
+                rdfs:label "Carnaval Toledo"@es ,
+                           "Toledo Carnival"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ToledoConcert
+:ToledoConcert rdf:type owl:NamedIndividual ,
+                        :Event ;
+               :eventIsOfType :MusicEvent ;
+               :hasLocation :Toledo ;
+               :hasEventDate "2024-02-06"^^xsd:date ;
+               rdfs:comment "Evento Música en Toledo"@es ,
+                            "Music event in Toledo"@en ;
+               rdfs:label "Concierto Toledo"@es ,
+                          "Toledo Concert"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ToledoCongress
+:ToledoCongress rdf:type owl:NamedIndividual ,
+                         :Event ;
+                :eventIsOfType :MusicEvent ;
+                :hasLocation :Toledo ;
+                :hasEventDate "2024-01-01"^^xsd:date ;
+                rdfs:comment "Evento Música en Toledo"@es ,
+                             "Music event in Toledo"@en ;
+                rdfs:label "Congreso Toledo"@es ,
+                           "Toledo Congress"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ToledoCoordinate
+:ToledoCoordinate rdf:type owl:NamedIndividual ,
+                           :GeoCoordinate .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ToledoFair
+:ToledoFair rdf:type owl:NamedIndividual ,
+                     :Event ;
+            :eventIsOfType :TechEvent ;
+            :hasLocation :Toledo ;
+            :hasEventDate "2024-12-18"^^xsd:date ;
+            rdfs:comment "Evento Tecnológico en Toledo"@es ,
+                         "Tech event in Toledo"@en ;
+            rdfs:label "Feria Toledo"@es ,
+                       "Toledo Fair"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ToledoFestival
+:ToledoFestival rdf:type owl:NamedIndividual ,
+                         :Event ;
+                :eventIsOfType :MusicEvent ;
+                :hasLocation :Toledo ;
+                :hasEventDate "2024-03-26"^^xsd:date ;
+                rdfs:comment "Evento Música en Toledo"@es ,
+                             "Music event in Toledo"@en ;
+                rdfs:label "Festival Toledo"@es ,
+                           "Toledo Festival"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#TouristHotel
+:TouristHotel rdf:type owl:NamedIndividual ,
+                       :HotelType .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#TransBilbao
+:TransBilbao rdf:type owl:NamedIndividual ,
+                      :TransportCompany ;
+             :hasCompanyName "Trans Bilbao" ;
+             rdfs:comment "Empresa de trasnportes en Bilbao"@es ,
+                          "Transport Company in Bilbao"@en ;
+             rdfs:label "Trans Bilbao"@en ,
+                        "Trans Bilbao"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#TransCadiz
+:TransCadiz rdf:type owl:NamedIndividual ,
+                     :TransportCompany ;
+            :hasCompanyName "Trans Cadiz" ;
+            rdfs:comment "Empresa de trasnportes en Cádiz"@es ,
+                         "Transport Company in Cadiz"@en ;
+            rdfs:label "Trans Cadiz"@en ,
+                       "Trans Cádiz"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#TransMadrid
+:TransMadrid rdf:type owl:NamedIndividual ,
+                      :TransportCompany ;
+             :hasCompanyName "Trans Madrid" ;
+             rdfs:comment "Empresa de trasnportes en Madrid"@es ,
+                          "Transport Company in Madrid"@en ;
+             rdfs:label "Trans Madrid"@en ,
+                        "Trans Madrid"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#TransMalaga
+:TransMalaga rdf:type owl:NamedIndividual ,
+                      :TransportCompany ;
+             :hasCompanyName "Trans Malaga" ;
+             rdfs:comment "Empresa de trasnportes en Málaga"@es ,
+                          "Transport Company in Malaga"@en ;
+             rdfs:label "Trans Malaga"@en ,
+                        "Trans Málaga"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#TransPamplona
+:TransPamplona rdf:type owl:NamedIndividual ,
+                        :TransportCompany ;
+               :hasCompanyName "Trans Pamplona" ;
+               rdfs:comment "Empresa de trasnportes en Pamplona"@es ,
+                            "Transport Company in Pamplona"@en ;
+               rdfs:label "Trans Pamplona"@en ,
+                          "Trans Pamplona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#TransSanSebastian
+:TransSanSebastian rdf:type owl:NamedIndividual ,
+                            :TransportCompany ;
+                   :hasCompanyName "Trans San Sebastian" ;
+                   rdfs:comment "Empresa de trasnportes en San Sebastián"@es ,
+                                "Transport Company in San Sebastian"@en ;
+                   rdfs:label "Trans San Sebastian"@en ,
+                              "Trans San Sebastián"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#TransSevilla
+:TransSevilla rdf:type owl:NamedIndividual ,
+                       :TransportCompany ;
+              :hasCompanyName "Trans Sevilla" ;
+              rdfs:comment "Empresa de trasnportes en Sevilla"@es ,
+                           "Transport Company in Sevilla"@en ;
+              rdfs:label "Trans Sevilla"@en ,
+                         "Trans Sevilla"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#TransToledo
+:TransToledo rdf:type owl:NamedIndividual ,
+                      :TransportCompany ;
+             :hasCompanyName "Trans Toledo" ;
+             rdfs:comment "Empresa de trasnportes en Toledo"@es ,
+                          "Transport Company in Toledo"@en ;
+             rdfs:label "Trans Toledo"@en ,
+                        "Trans Toledo"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#TransValencia
+:TransValencia rdf:type owl:NamedIndividual ,
+                        :TransportCompany ;
+               :hasCompanyName "Trans Valencia" ;
+               rdfs:comment "Empresa de trasnportes en Valencia"@es ,
+                            "Transport Company in Valencia"@en ;
+               rdfs:label "Trans Valencia"@en ,
+                          "Trans Valencia"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#TransZaragoza
+:TransZaragoza rdf:type owl:NamedIndividual ,
+                        :TransportCompany ;
+               :hasCompanyName "Trans Zaragoza" ;
+               rdfs:comment "Empresa de trasnportes en Zaragoza"@es ,
+                            "Transport Company in Zaragoza"@en ;
+               rdfs:label "Trans Zaragoza"@en ,
+                          "Trans Zaragoza"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#UrbanBarcelona
+:UrbanBarcelona rdf:type owl:NamedIndividual ,
+                         :TransportCompany ;
+                :hasCompanyName "Urban Barcelona" ;
+                rdfs:comment "Empresa de trasnportes en Barcelona"@es ,
+                             "Transport Company in Barcelona"@en ;
+                rdfs:label "Urban Barcelona"@en ,
+                           "Urban Barcelona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#UrbanBilbao
+:UrbanBilbao rdf:type owl:NamedIndividual ,
+                      :TransportCompany ;
+             :hasCompanyName "Urban Bilbao" ;
+             rdfs:comment "Empresa de trasnportes en Bilbao"@es ,
+                          "Transport Company in Bilbao"@en ;
+             rdfs:label "Urban Bilbao"@en ,
+                        "Urban Bilbao"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#UrbanMadrid
+:UrbanMadrid rdf:type owl:NamedIndividual ,
+                      :TransportCompany ;
+             :hasCompanyName "Urban Madrid" ;
+             rdfs:comment "Empresa de trasnportes en Madrid"@es ,
+                          "Transport Company in Madrid"@en ;
+             rdfs:label "Urban Madrid"@en ,
+                        "Urban Madrid"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#UrbanMalaga
+:UrbanMalaga rdf:type owl:NamedIndividual ,
+                      :TransportCompany ;
+             :hasCompanyName "Urban Malaga" ;
+             rdfs:comment "Empresa de trasnportes en Málaga"@es ,
+                          "Transport Company in Malaga"@en ;
+             rdfs:label "Urban Malaga"@en ,
+                        "Urban Málaga"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#UrbanPamplona
+:UrbanPamplona rdf:type owl:NamedIndividual ,
+                        :TransportCompany ;
+               :hasCompanyName "Urban Pamplona" ;
+               rdfs:comment "Empresa de trasnportes en Pamplona"@es ,
+                            "Transport Company in Pamplona"@en ;
+               rdfs:label "Urban Pamplona"@en ,
+                          "Urban Pamplona"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#UrbanSanSebastian
+:UrbanSanSebastian rdf:type owl:NamedIndividual ,
+                            :TransportCompany ;
+                   :hasCompanyName "Urban San Sebastian" ;
+                   rdfs:comment "Empresa de trasnportes en San Sebastián"@es ,
+                                "Transport Company in San Sebastian"@en ;
+                   rdfs:label "Urban San Sebastian"@en ,
+                              "Urban San Sebastián"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#UrbanSevilla
+:UrbanSevilla rdf:type owl:NamedIndividual ,
+                       :TransportCompany ;
+              :hasCompanyName "Urban Sevilla" ;
+              rdfs:comment "Empresa de trasnportes en Sevilla"@es ,
+                           "Transport Company in Sevilla"@en ;
+              rdfs:label "Urban Sevilla"@en ,
+                         "Urban Sevilla"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#UrbanToledo
+:UrbanToledo rdf:type owl:NamedIndividual ,
+                      :TransportCompany ;
+             :hasCompanyName "Urban Toledo" ;
+             rdfs:comment "Empresa de trasnportes en Toledo"@es ,
+                          "Transport Company in Toledo"@en ;
+             rdfs:label "Urban Toledo"@en ,
+                        "Urban Toledo"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#UrbanValencia
+:UrbanValencia rdf:type owl:NamedIndividual ,
+                        :TransportCompany ;
+               :hasCompanyName "Urban Valencia" ;
+               rdfs:comment "Empresa de trasnportes en Valencia"@es ,
+                            "Transport Company in Valencia"@en ;
+               rdfs:label "Urban Valencia"@en ,
+                          "Urban Valencia"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#UrbanZaragoza
+:UrbanZaragoza rdf:type owl:NamedIndividual ,
+                        :TransportCompany ;
+               :hasCompanyName "Urban Zaragoza" ;
+               rdfs:comment "Empresa de trasnportes en Zaragoza"@es ,
+                            "Transport Company in Zaragoza"@en ;
+               rdfs:label "Urban Zaragoza"@en ,
+                          "Urban Zaragoza"@es .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Valencia
+:Valencia rdf:type owl:NamedIndividual ,
+                   :City ;
+          :hasGeoCoordinates :ValenciaCoordinate ;
+          rdfs:sameAs "https://dbpedia.org/page/Valencia" .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ValenciaCarnival
+:ValenciaCarnival rdf:type owl:NamedIndividual ,
+                           :Event ;
+                  :eventIsOfType :MusicEvent ;
+                  :hasLocation :Valencia ;
+                  :hasEventDate "2024-01-28"^^xsd:date ;
+                  rdfs:comment "Evento Música en Valencia"@es ,
+                               "Music event in Valencia"@en ;
+                  rdfs:label "Carnaval Valencia"@es ,
+                             "Valencia Carnival"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ValenciaConcert
+:ValenciaConcert rdf:type owl:NamedIndividual ,
+                          :Event ;
+                 :eventIsOfType :MusicEvent ;
+                 :hasLocation :Valencia ;
+                 :hasEventDate "2024-02-07"^^xsd:date ;
+                 rdfs:comment "Evento Música en Valencia"@es ,
+                              "Music event in Valencia"@en ;
+                 rdfs:label "Concierto Valencia"@es ,
+                            "Valencia Concert"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ValenciaCongress
+:ValenciaCongress rdf:type owl:NamedIndividual ,
+                           :Event ;
+                  :eventIsOfType :CulturalEvent ;
+                  :hasLocation :Valencia ;
+                  :hasEventDate "2024-12-13"^^xsd:date ;
+                  rdfs:comment "Cultural event in Valencia"@en ,
+                               "Evento Cultural en Valencia"@es ;
+                  rdfs:label "Congreso Valencia"@es ,
+                             "Valencia Congress"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ValenciaCoordinate
+:ValenciaCoordinate rdf:type owl:NamedIndividual ,
+                             :GeoCoordinate .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ValenciaFestival
+:ValenciaFestival rdf:type owl:NamedIndividual ,
+                           :Event ;
+                  :eventIsOfType :CulturalEvent ;
+                  :hasLocation :Valencia ;
+                  :hasEventDate "2024-01-24"^^xsd:date ;
+                  rdfs:comment "Cultural event in Valencia"@en ,
+                               "Evento Cultural en Valencia"@es ;
+                  rdfs:label "Festival Valencia"@es ,
+                             "Valencia Festival"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Zaragoza
+:Zaragoza rdf:type owl:NamedIndividual ,
+                   :City ;
+          :hasGeoCoordinates :ZaragozaCoordinate ;
+          rdfs:sameAs "https://dbpedia.org/page/Zaragoza" .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ZaragozaCarnival
+:ZaragozaCarnival rdf:type owl:NamedIndividual ,
+                           :Event ;
+                  :eventIsOfType :GastronomicEvent ;
+                  :hasLocation :Zaragoza ;
+                  :hasEventDate "2024-02-19"^^xsd:date ;
+                  rdfs:comment "Evento Gastronómico en Zaragoza"@es ,
+                               "Gastronomic event in Zaragoza"@en ;
+                  rdfs:label "Carnaval Zaragoza"@es ,
+                             "Zaragoza Carnival"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ZaragozaConcert
+:ZaragozaConcert rdf:type owl:NamedIndividual ,
+                          :Event ;
+                 :eventIsOfType :CulturalEvent ;
+                 :hasLocation :Zaragoza ;
+                 :hasEventDate "2024-09-11"^^xsd:date ;
+                 rdfs:comment "Cultural event in Zaragoza"@en ,
+                              "Evento Cultural en Zaragoza"@es ;
+                 rdfs:label "Concierto Zaragoza"@es ,
+                            "Zaragoza Concert"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ZaragozaCongress
+:ZaragozaCongress rdf:type owl:NamedIndividual ,
+                           :Event ;
+                  :eventIsOfType :SportsEvent ;
+                  :hasLocation :Zaragoza ;
+                  :hasEventDate "2024-08-24"^^xsd:date ;
+                  rdfs:comment "Evento Deportivo en Zaragoza"@es ,
+                               "Sports event in Zaragoza"@en ;
+                  rdfs:label "Congreso Zaragoza"@es ,
+                             "Zaragoza Congress"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ZaragozaCoordinate
+:ZaragozaCoordinate rdf:type owl:NamedIndividual ,
+                             :GeoCoordinate .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ZaragozaFair
+:ZaragozaFair rdf:type owl:NamedIndividual ,
+                       :Event ;
+              :eventIsOfType :GastronomicEvent ;
+              :hasLocation :Zaragoza ;
+              :hasEventDate "2024-05-26"^^xsd:date ;
+              rdfs:comment "Evento Gastronómico en Zaragoza"@es ,
+                           "Gastronomic event in Zaragoza"@en ;
+              rdfs:label "Feria Zaragoza"@es ,
+                         "Zaragoza Fair"@en .
+
+
+###  http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ZaragozaFestival
+:ZaragozaFestival rdf:type owl:NamedIndividual ,
+                           :Event ;
+                  :eventIsOfType :MusicEvent ;
+                  :hasLocation :Zaragoza ;
+                  :hasEventDate "2024-11-06"^^xsd:date ;
+                  rdfs:comment "Evento Música en Zaragoza"@es ,
+                               "Music event in Zaragoza"@en ;
+                  rdfs:label "Festival Zaragoza"@es ,
+                             "Zaragoza Festival"@en .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Bus
+                :Metro
+                :PublicBicycle
+                :Taxi
+                :Tram
+              )
+] .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+<urn:swrl:var#A> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#R> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#F> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#P> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Accommodation ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#A>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasRating ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#A> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#R>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first <urn:swrl:var#R> ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 4.0 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :isRecommendedAccommodation ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#A> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Accommodation ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#A>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasRating ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#A> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#R>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first <urn:swrl:var#R> ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 4.0 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :isRecommendedAccommodation ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#A> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "false"^^xsd:boolean
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Restaurant ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#F>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasRating ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#F> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#R>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThanOrEqual> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first <urn:swrl:var#R> ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 3.0 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasAveragePricePerPerson ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#F> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#P>
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                rdf:first <urn:swrl:var#P> ;
+                                                                                                                                                rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                           rdf:first 50 ;
+                                                                                                                                                           rdf:rest rdf:nil
+                                                                                                                                                         ]
+                                                                                                                                              ]
+                                                                                                 ] ;
+                                                                                       rdf:rest rdf:nil
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :isRecommendedRestaurant ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#F> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
