@@ -174,6 +174,19 @@
 }, {
   "@id" : "_:genid40",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#GeoCoordinate"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hasGeoCoordinates"
+  } ],
+  "http://www.w3.org/2002/07/owl#qualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ]
+}, {
+  "@id" : "_:genid41",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
     "@value" : "1"
@@ -185,7 +198,7 @@
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hasCompanyName"
   } ]
 }, {
-  "@id" : "_:genid41",
+  "@id" : "_:genid42",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -198,7 +211,7 @@
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#eventIsOfType"
   } ]
 }, {
-  "@id" : "_:genid42",
+  "@id" : "_:genid43",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#minQualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -211,7 +224,7 @@
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hasLocation"
   } ]
 }, {
-  "@id" : "_:genid43",
+  "@id" : "_:genid44",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onDataRange" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#decimal"
@@ -224,7 +237,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid44",
+  "@id" : "_:genid45",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onDataRange" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#decimal"
@@ -237,7 +250,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid45",
+  "@id" : "_:genid46",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#City"
@@ -250,7 +263,20 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid46",
+  "@id" : "_:genid47",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+    "@value" : "1"
+  } ],
+  "http://www.w3.org/2002/07/owl#onClass" : [ {
+    "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#TransportCompany"
+  } ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#operatedBy"
+  } ]
+}, {
+  "@id" : "_:genid48",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onClass" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#City"
@@ -263,7 +289,7 @@
     "@value" : "1"
   } ]
 }, {
-  "@id" : "_:genid47",
+  "@id" : "_:genid49",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#maxQualifiedCardinality" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
@@ -276,7 +302,13 @@
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hasRating"
   } ]
 }, {
-  "@id" : "_:genid48",
+  "@id" : "_:genid5",
+  "http://www.w3.org/2001/XMLSchema#minInclusive" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "0"
+  } ]
+}, {
+  "@id" : "_:genid50",
   "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
   "http://www.w3.org/2002/07/owl#members" : [ {
     "@list" : [ {
@@ -292,41 +324,35 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid5",
-  "http://www.w3.org/2001/XMLSchema#minInclusive" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
-    "@value" : "0"
-  } ]
-}, {
-  "@id" : "_:genid54",
+  "@id" : "_:genid56",
   "@type" : [ "http://www.w3.org/2003/11/swrl#Imp" ],
   "http://www.w3.org/2003/11/swrl#body" : [ {
     "@list" : [ {
+      "@id" : "_:genid64"
+    }, {
       "@id" : "_:genid62"
     }, {
-      "@id" : "_:genid60"
-    }, {
-      "@id" : "_:genid56"
+      "@id" : "_:genid58"
     } ]
   } ],
   "http://www.w3.org/2003/11/swrl#head" : [ {
     "@list" : [ {
-      "@id" : "_:genid64"
+      "@id" : "_:genid66"
     } ]
   } ]
 }, {
-  "@id" : "_:genid56",
+  "@id" : "_:genid58",
   "@type" : [ "http://www.w3.org/2003/11/swrl#BuiltinAtom" ],
   "http://www.w3.org/2003/11/swrl#arguments" : [ {
     "@list" : [ {
       "@id" : "urn:swrl:var#R"
     }, {
       "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
-      "@value" : "4.0"
+      "@value" : "3.0"
     } ]
   } ],
   "http://www.w3.org/2003/11/swrl#builtin" : [ {
-    "@id" : "http://www.w3.org/2003/11/swrlb#greaterThan"
+    "@id" : "http://www.w3.org/2003/11/swrlb#lessThanOrEqual"
   } ]
 }, {
   "@id" : "_:genid6",
@@ -340,7 +366,7 @@
     } ]
   } ]
 }, {
-  "@id" : "_:genid60",
+  "@id" : "_:genid62",
   "@type" : [ "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom" ],
   "http://www.w3.org/2003/11/swrl#argument1" : [ {
     "@id" : "urn:swrl:var#A"
@@ -350,74 +376,9 @@
   } ],
   "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hasRating"
-  } ]
-}, {
-  "@id" : "_:genid62",
-  "@type" : [ "http://www.w3.org/2003/11/swrl#ClassAtom" ],
-  "http://www.w3.org/2003/11/swrl#argument1" : [ {
-    "@id" : "urn:swrl:var#A"
-  } ],
-  "http://www.w3.org/2003/11/swrl#classPredicate" : [ {
-    "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Accommodation"
   } ]
 }, {
   "@id" : "_:genid64",
-  "@type" : [ "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom" ],
-  "http://www.w3.org/2003/11/swrl#argument1" : [ {
-    "@id" : "urn:swrl:var#A"
-  } ],
-  "http://www.w3.org/2003/11/swrl#argument2" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#boolean",
-    "@value" : "true"
-  } ],
-  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
-    "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#isRecommendedAccommodation"
-  } ]
-}, {
-  "@id" : "_:genid65",
-  "@type" : [ "http://www.w3.org/2003/11/swrl#Imp" ],
-  "http://www.w3.org/2003/11/swrl#body" : [ {
-    "@list" : [ {
-      "@id" : "_:genid73"
-    }, {
-      "@id" : "_:genid71"
-    }, {
-      "@id" : "_:genid67"
-    } ]
-  } ],
-  "http://www.w3.org/2003/11/swrl#head" : [ {
-    "@list" : [ {
-      "@id" : "_:genid75"
-    } ]
-  } ]
-}, {
-  "@id" : "_:genid67",
-  "@type" : [ "http://www.w3.org/2003/11/swrl#BuiltinAtom" ],
-  "http://www.w3.org/2003/11/swrl#arguments" : [ {
-    "@list" : [ {
-      "@id" : "urn:swrl:var#R"
-    }, {
-      "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
-      "@value" : "4.0"
-    } ]
-  } ],
-  "http://www.w3.org/2003/11/swrl#builtin" : [ {
-    "@id" : "http://www.w3.org/2003/11/swrlb#lessThanOrEqual"
-  } ]
-}, {
-  "@id" : "_:genid71",
-  "@type" : [ "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom" ],
-  "http://www.w3.org/2003/11/swrl#argument1" : [ {
-    "@id" : "urn:swrl:var#A"
-  } ],
-  "http://www.w3.org/2003/11/swrl#argument2" : [ {
-    "@id" : "urn:swrl:var#R"
-  } ],
-  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
-    "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hasRating"
-  } ]
-}, {
-  "@id" : "_:genid73",
   "@type" : [ "http://www.w3.org/2003/11/swrl#ClassAtom" ],
   "http://www.w3.org/2003/11/swrl#argument1" : [ {
     "@id" : "urn:swrl:var#A"
@@ -426,7 +387,7 @@
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Accommodation"
   } ]
 }, {
-  "@id" : "_:genid75",
+  "@id" : "_:genid66",
   "@type" : [ "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom" ],
   "http://www.w3.org/2003/11/swrl#argument1" : [ {
     "@id" : "urn:swrl:var#A"
@@ -439,28 +400,99 @@
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#isRecommendedAccommodation"
   } ]
 }, {
-  "@id" : "_:genid76",
+  "@id" : "_:genid67",
   "@type" : [ "http://www.w3.org/2003/11/swrl#Imp" ],
   "http://www.w3.org/2003/11/swrl#body" : [ {
     "@list" : [ {
-      "@id" : "_:genid90"
+      "@id" : "_:genid75"
     }, {
-      "@id" : "_:genid88"
+      "@id" : "_:genid73"
     }, {
-      "@id" : "_:genid84"
-    }, {
-      "@id" : "_:genid82"
-    }, {
-      "@id" : "_:genid78"
+      "@id" : "_:genid69"
     } ]
   } ],
   "http://www.w3.org/2003/11/swrl#head" : [ {
     "@list" : [ {
-      "@id" : "_:genid92"
+      "@id" : "_:genid77"
     } ]
   } ]
 }, {
+  "@id" : "_:genid69",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#BuiltinAtom" ],
+  "http://www.w3.org/2003/11/swrl#arguments" : [ {
+    "@list" : [ {
+      "@id" : "urn:swrl:var#R"
+    }, {
+      "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+      "@value" : "4.0"
+    } ]
+  } ],
+  "http://www.w3.org/2003/11/swrl#builtin" : [ {
+    "@id" : "http://www.w3.org/2003/11/swrlb#greaterThan"
+  } ]
+}, {
+  "@id" : "_:genid73",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom" ],
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "urn:swrl:var#A"
+  } ],
+  "http://www.w3.org/2003/11/swrl#argument2" : [ {
+    "@id" : "urn:swrl:var#R"
+  } ],
+  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
+    "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hasRating"
+  } ]
+}, {
+  "@id" : "_:genid75",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#ClassAtom" ],
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "urn:swrl:var#A"
+  } ],
+  "http://www.w3.org/2003/11/swrl#classPredicate" : [ {
+    "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Accommodation"
+  } ]
+}, {
+  "@id" : "_:genid77",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom" ],
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "urn:swrl:var#A"
+  } ],
+  "http://www.w3.org/2003/11/swrl#argument2" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "@value" : "true"
+  } ],
+  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
+    "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#isRecommendedAccommodation"
+  } ]
+}, {
   "@id" : "_:genid78",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#Imp" ],
+  "http://www.w3.org/2003/11/swrl#body" : [ {
+    "@list" : [ {
+      "@id" : "_:genid92"
+    }, {
+      "@id" : "_:genid90"
+    }, {
+      "@id" : "_:genid86"
+    }, {
+      "@id" : "_:genid84"
+    }, {
+      "@id" : "_:genid80"
+    } ]
+  } ],
+  "http://www.w3.org/2003/11/swrl#head" : [ {
+    "@list" : [ {
+      "@id" : "_:genid94"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid8",
+  "http://www.w3.org/2001/XMLSchema#minInclusive" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#int",
+    "@value" : "0"
+  } ]
+}, {
+  "@id" : "_:genid80",
   "@type" : [ "http://www.w3.org/2003/11/swrl#BuiltinAtom" ],
   "http://www.w3.org/2003/11/swrl#arguments" : [ {
     "@list" : [ {
@@ -474,13 +506,7 @@
     "@id" : "http://www.w3.org/2003/11/swrlb#lessThanOrEqual"
   } ]
 }, {
-  "@id" : "_:genid8",
-  "http://www.w3.org/2001/XMLSchema#minInclusive" : [ {
-    "@type" : "http://www.w3.org/2001/XMLSchema#int",
-    "@value" : "0"
-  } ]
-}, {
-  "@id" : "_:genid82",
+  "@id" : "_:genid84",
   "@type" : [ "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom" ],
   "http://www.w3.org/2003/11/swrl#argument1" : [ {
     "@id" : "urn:swrl:var#F"
@@ -492,7 +518,7 @@
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hasAveragePricePerPerson"
   } ]
 }, {
-  "@id" : "_:genid84",
+  "@id" : "_:genid86",
   "@type" : [ "http://www.w3.org/2003/11/swrl#BuiltinAtom" ],
   "http://www.w3.org/2003/11/swrl#arguments" : [ {
     "@list" : [ {
@@ -504,18 +530,6 @@
   } ],
   "http://www.w3.org/2003/11/swrl#builtin" : [ {
     "@id" : "http://www.w3.org/2003/11/swrlb#greaterThanOrEqual"
-  } ]
-}, {
-  "@id" : "_:genid88",
-  "@type" : [ "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom" ],
-  "http://www.w3.org/2003/11/swrl#argument1" : [ {
-    "@id" : "urn:swrl:var#F"
-  } ],
-  "http://www.w3.org/2003/11/swrl#argument2" : [ {
-    "@id" : "urn:swrl:var#R"
-  } ],
-  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
-    "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hasRating"
   } ]
 }, {
   "@id" : "_:genid9",
@@ -532,6 +546,18 @@
   } ]
 }, {
   "@id" : "_:genid90",
+  "@type" : [ "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom" ],
+  "http://www.w3.org/2003/11/swrl#argument1" : [ {
+    "@id" : "urn:swrl:var#F"
+  } ],
+  "http://www.w3.org/2003/11/swrl#argument2" : [ {
+    "@id" : "urn:swrl:var#R"
+  } ],
+  "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
+    "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#hasRating"
+  } ]
+}, {
+  "@id" : "_:genid92",
   "@type" : [ "http://www.w3.org/2003/11/swrl#ClassAtom" ],
   "http://www.w3.org/2003/11/swrl#argument1" : [ {
     "@id" : "urn:swrl:var#F"
@@ -540,7 +566,7 @@
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Restaurant"
   } ]
 }, {
-  "@id" : "_:genid92",
+  "@id" : "_:genid94",
   "@type" : [ "http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom" ],
   "http://www.w3.org/2003/11/swrl#argument1" : [ {
     "@id" : "urn:swrl:var#F"
@@ -552,6 +578,9 @@
   "http://www.w3.org/2003/11/swrl#propertyPredicate" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#isRecommendedRestaurant"
   } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/abstract",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
   "@id" : "http://purl.org/dc/terms/created",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
@@ -570,6 +599,13 @@
 }, {
   "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto",
   "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
+  "http://purl.org/dc/terms/abstract" : [ {
+    "@language" : "es",
+    "@value" : "La ontología tiene como objetivo principal ayudar a turistas y personas que viajen por negocios a encontrar los medios de transporte, hoteles, eventos, atracciones turísticas y restaurantes que hay disponibles en una ciudad específica."
+  }, {
+    "@language" : "en",
+    "@value" : "The main objective of the ontology is to help tourists and business travelers find the means of transportation, hotels, events, tourist attractions, and restaurants available in a specific city."
+  } ],
   "http://purl.org/dc/terms/created" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#date",
     "@value" : "2025-04-06"
@@ -737,6 +773,14 @@
 }, {
   "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#BarcelonaCoordinate",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#latitude" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "41.3874"
+  } ],
+  "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#longitude" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "2.1686"
+  } ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#GeoCoordinate"
   } ]
@@ -903,6 +947,14 @@
 }, {
   "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#BilbaoCoordinate",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#latitude" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "43.2630"
+  } ],
+  "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#longitude" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "-2.9350"
+  } ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#GeoCoordinate"
   } ]
@@ -1105,6 +1157,14 @@
 }, {
   "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CadizCoordinate",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#latitude" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "36.5297"
+  } ],
+  "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#longitude" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "-6.2920"
+  } ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#GeoCoordinate"
   } ]
@@ -1757,6 +1817,8 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#AdministrativePlace"
+  }, {
+    "@id" : "_:genid40"
   } ]
 }, {
   "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#CityBarcelona",
@@ -2025,7 +2087,7 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#Thing"
   }, {
-    "@id" : "_:genid40"
+    "@id" : "_:genid41"
   } ],
   "http://www.w3.org/2002/07/owl#disjointWith" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Event"
@@ -2077,9 +2139,9 @@
     "@value" : "Evento"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "_:genid41"
-  }, {
     "@id" : "_:genid42"
+  }, {
+    "@id" : "_:genid43"
   } ],
   "http://www.w3.org/2002/07/owl#disjointWith" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Geolocation"
@@ -2176,9 +2238,9 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Geolocation"
   }, {
-    "@id" : "_:genid43"
-  }, {
     "@id" : "_:genid44"
+  }, {
+    "@id" : "_:genid45"
   } ]
 }, {
   "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Geolocation",
@@ -3986,6 +4048,14 @@
 }, {
   "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MadridCoordinate",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#latitude" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "40.4168"
+  } ],
+  "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#longitude" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "-3.7038"
+  } ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#GeoCoordinate"
   } ]
@@ -4124,6 +4194,14 @@
 }, {
   "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#MalagaCoordinate",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#latitude" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "36.7213"
+  } ],
+  "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#longitude" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "-4.4210"
+  } ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#GeoCoordinate"
   } ]
@@ -5024,7 +5102,7 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Place"
   }, {
-    "@id" : "_:genid45"
+    "@id" : "_:genid46"
   } ]
 }, {
   "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#PalacioBarcelona",
@@ -5314,6 +5392,14 @@
 }, {
   "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#PamplonaCoordinate",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#latitude" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "42.8169"
+  } ],
+  "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#longitude" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "-1.6444"
+  } ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#GeoCoordinate"
   } ]
@@ -5745,6 +5831,8 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#TransportService"
+  }, {
+    "@id" : "_:genid47"
   } ]
 }, {
   "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#Restaurant",
@@ -7067,6 +7155,14 @@
 }, {
   "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#SanSebastianCoordinate",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#latitude" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "43.3183"
+  } ],
+  "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#longitude" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "-1.9812"
+  } ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#GeoCoordinate"
   } ]
@@ -7120,7 +7216,7 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.w3.org/2002/07/owl#Thing"
   }, {
-    "@id" : "_:genid46"
+    "@id" : "_:genid48"
   } ],
   "http://www.w3.org/2002/07/owl#disjointWith" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#TypeEnumeration"
@@ -7230,6 +7326,14 @@
 }, {
   "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#SevillaCoordinate",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#latitude" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "37.3886"
+  } ],
+  "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#longitude" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "-5.9823"
+  } ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#GeoCoordinate"
   } ]
@@ -7466,6 +7570,14 @@
 }, {
   "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ToledoCoordinate",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#latitude" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "39.8628"
+  } ],
+  "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#longitude" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "-4.0273"
+  } ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#GeoCoordinate"
   } ]
@@ -7549,7 +7661,7 @@
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#NonAdministrativePlace"
   }, {
-    "@id" : "_:genid47"
+    "@id" : "_:genid49"
   } ]
 }, {
   "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#TouristHotel",
@@ -8202,6 +8314,14 @@
 }, {
   "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ValenciaCoordinate",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#latitude" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "39.4699"
+  } ],
+  "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#longitude" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "-0.3763"
+  } ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#GeoCoordinate"
   } ]
@@ -8340,6 +8460,14 @@
 }, {
   "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#ZaragozaCoordinate",
   "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#latitude" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "41.6488"
+  } ],
+  "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#longitude" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "-0.8891"
+  } ],
   "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
     "@id" : "http://www.semanticweb.org/rafag/ontologies/2025/3/SmartTourOnto#GeoCoordinate"
   } ]
